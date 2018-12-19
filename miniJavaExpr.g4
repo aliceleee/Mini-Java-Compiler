@@ -11,7 +11,7 @@ classdeclaration : CLASS IDENTIFIER (EXTENDS IDENTIFIER)? '{' (vardeclaration)* 
 
 vardeclaration : mjtype IDENTIFIER ';';
 
-methoddeclaration : PUBLIC mjtype IDENTIFIER '(' (mjtype IDENTIFIER (',' mjtype IDENTIFIER)*)? ')' '{' (vardeclaration)* (statement)* 'return' expression ';' '}';
+methoddeclaration : PUBLIC mjtype IDENTIFIER '(' (mjtype IDENTIFIER (',' mjtype IDENTIFIER)*)? ')' '{' (vardeclaration)* (statement)* RETURN expression ';' '}';
 
 mjtype : INT '['']'   # arraymjtype
      | BOOLEAN      # booleanmjtype
