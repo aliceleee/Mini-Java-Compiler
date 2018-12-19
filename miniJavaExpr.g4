@@ -19,7 +19,7 @@ type : 'int' '['']'   # arrayType
      | IDENTIFIER   # identifierType
      ;
 
-statement : '{' (statement)* '}'
+statement : '{' (statement)* '}'                                    # blockStatement
           | 'if' '(' expression ')' statement 'else' statement      # ifStatement
           | 'while' '(' expression ')' statement                    # whileStatement
           | 'System.out.println' '(' expression ')' ';'             # printStatement
@@ -32,12 +32,12 @@ expression : expression ('&&' | '<' | '+' | '-' | '*') expression               
            | expression '.' 'length'                                                # arraylenExpr
            | expression '.' IDENTIFIER '(' (expression (',' expression)*)? ')'      # classPropExpr
            | INT                                                                    # constIntExpr
-           | BOOLEAN
-           | IDENTIFIER
-           | 'this'
+           | BOOLEAN                                                                # constBooleanExpr
+           | IDENTIFIER                                                             # constIdenExpr
+           | 'this'                                                                 # thisExpr
            | 'new' 'int' '[' expression ']'                                         # createArrayExpr
            | 'new' IDENTIFIER '(' ')'                                               # createClassExpr
-           | '!' expression
-           | '(' expression ')'
+           | '!' expression                                                         # oppExpr
+           | '(' expression ')'                                                     # prioExpr
            ;
 
