@@ -1,4 +1,4 @@
-lexer grammar miniJavaLexer.g4;
+lexer grammar miniJavaLexer;
 
 // Operation Category
 IDENTIFIER: [A-Za-z$_][a-zA-Z\d_$]*;
