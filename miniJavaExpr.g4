@@ -5,24 +5,24 @@ import miniJavaLexer;
 
 goal : mainclass(classdeclaration)*;
 
-mainclass : 'class' IDENTIFIER '{' 'public' 'static' 'void' 'main' '(' 'String' '[' ']' IDENTIFIER ')' '{' statement '}' '}';
+mainclass : CLASS IDENTIFIER '{' PUBLIC STATIC VOID MAIN '(' STRING '[' ']' IDENTIFIER ')' '{' statement '}' '}';
 
-classdeclaration : 'class' IDENTIFIER ('extends' IDENTIFIER)? '{' (vardeclaration)* (methoddeclaration)* '}';
+classdeclaration : CLASS IDENTIFIER (EXTENDS IDENTIFIER)? '{' (vardeclaration)* (methoddeclaration)* '}';
 
-vardeclaration : type IDENTIFIER ';';
+vardeclaration : mjtype IDENTIFIER ';';
 
-methoddeclaration : 'public' type IDENTIFIER '(' (type IDENTIFIER (',' type IDENTIFIER)*)? ')' '{' (vardeclaration)* (statement)* 'return' expression ';' '}';
+methoddeclaration : PUBLIC mjtype IDENTIFIER '(' (mjtype IDENTIFIER (',' mjtype IDENTIFIER)*)? ')' '{' (vardeclaration)* (statement)* 'return' expression ';' '}';
 
-type : 'int' '['']'   # arrayType
-     | 'boolean'      # booleanType
-     | 'int'          # intType
-     | IDENTIFIER   # identifierType
+mjtype : INT '['']'   # arraymjtype
+     | BOOLEAN      # booleanmjtype
+     | INT          # intmjtype
+     | IDENTIFIER   # identifiermjtype
      ;
 
 statement : '{' (statement)* '}'                                    # blockStatement
-          | 'if' '(' expression ')' statement 'else' statement      # ifStatement
-          | 'while' '(' expression ')' statement                    # whileStatement
-          | 'System.out.println' '(' expression ')' ';'             # printStatement
+          | IF '(' expression ')' statement ELSE statement      # ifStatement
+          | WHILE '(' expression ')' statement                    # whileStatement
+          | PRINT '(' expression ')' ';'             # printStatement
           | IDENTIFIER '=' expression ';'                           # assignStatement
           | IDENTIFIER '[' expression ']' '=' expression ';'        # assignStatement
           ;
@@ -31,13 +31,14 @@ expression : expression ('&&' | '<' | '+' | '-' | '*') expression               
            | expression '[' expression ']'                                          # arrayValExpr
            | expression '.' 'length'                                                # arraylenExpr
            | expression '.' IDENTIFIER '(' (expression (',' expression)*)? ')'      # classPropExpr
-           | INT                                                                    # constIntExpr
-           | BOOLEAN                                                                # constBooleanExpr
+           | INTERGER_LITERAL                                                                    # constIntExpr
+           | BOOLEAN_LITERAL                                                                # constBooleanExpr
            | IDENTIFIER                                                             # constIdenExpr
-           | 'this'                                                                 # thisExpr
-           | 'new' 'int' '[' expression ']'                                         # createArrayExpr
-           | 'new' IDENTIFIER '(' ')'                                               # createClassExpr
+           | THIS                                                                 # thisExpr
+           | NEW INT '[' expression ']'                                         # createArrayExpr
+           | NEW IDENTIFIER '(' ')'                                               # createClassExpr
            | '!' expression                                                         # oppExpr
            | '(' expression ')'                                                     # prioExpr
            ;
 
+rtr : RETURN expression ';';        # return

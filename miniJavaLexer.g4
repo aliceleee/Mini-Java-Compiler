@@ -3,7 +3,7 @@ lexer grammar miniJavaLexer;
 // Operation Category
 IDENTIFIER: [A-Za-z$_][a-zA-Z0-9_$]*;
 INT: [0-9]+;
-WS: [\t\r\n]+ -> skip;
+WS: [ \t\r\n]+ -> skip;
 MULTILINE_COMMENT: '/*' .*? '*/' -> skip;
 LINE_COMMENT: '//' .*? '\n' -> skip;
 BOOLEAN: 'true'|'false';
