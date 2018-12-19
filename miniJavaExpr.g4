@@ -41,4 +41,4 @@ expression : expression ('&&' | '<' | '+' | '-' | '*') expression               
            | '(' expression ')'                                                     # prioExpr
            ;
 
-rtr : RETURN expression ';';        # return
+rtr : RETURN expression ';';
