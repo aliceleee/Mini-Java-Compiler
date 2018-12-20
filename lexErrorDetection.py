@@ -16,17 +16,30 @@ class lexErrorDetection(ParseTreeVisitor):
     def __init__(self):
         super().__init__()
     
-    def checkIdentifier(self, identifier):
+    def _checkIdentifier(self, identifier):
         if identifier in reserved_words:
             raise LexError(identifier + " is a reserved word, can't use it as variable name.")
-
-    def visitMainclass(self, ctx:miniJavaExprParser.MainclassContext):
+    def checkIdentifier(self, ctx):
         identifier_nodes = ctx.IDENTIFIER()
         for node in identifier_nodes:
             token = node.getSymbol()
             identifier = token.text
-            try: self.checkIdentifier(identifier)
+            try: self._checkIdentifier(identifier)
             except Exception as e:
                 line = token.line
                 col = token.start
                 print("Error(line " + str(line) + " , position " + str(col) + "): " + e.msg)
+    def visitMainclass(self, ctx:miniJavaExprParser.MainclassContext):
+        self.checkIdentifier(ctx)
+    def visitClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
+        self.checkIdentifier(ctx)
+    def visitVardeclaration(self, ctx:miniJavaExprParser.VardeclarationContext):
+        self.checkIdentifier(ctx)
+    def visitMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
+        self.checkIdentifier(ctx)
+    def visitMjtype(self, ctx:miniJavaExprParser.MjtypeContext):
+        self.checkIdentifier(ctx)
+    def visitStatement(self, ctx:miniJavaExprParser.StatementContext):
+        self.checkIdentifier(ctx)
+    def visitExpression(self, ctx:miniJavaExprParser.ExpressionContext):
+        self.checkIdentifier(ctx)

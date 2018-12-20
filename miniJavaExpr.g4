@@ -27,7 +27,7 @@ statement : '{' (statement)* '}'                                    # blockState
           | IDENTIFIER '[' expression ']' '=' expression ';'        # assignStatement
           ;
 
-expression : expression ('&&' | '<' | '+' | '-' | '*') expression                   # operationExpr
+expression : expression op=('&&' | '<' | '+' | '-' | '*') expression                   # operationExpr
            | expression '[' expression ']'                                          # arrayValExpr
            | expression '.' 'length'                                                # arraylenExpr
            | expression '.' IDENTIFIER '(' (expression (',' expression)*)? ')'      # classPropExpr

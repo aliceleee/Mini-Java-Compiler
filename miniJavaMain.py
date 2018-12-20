@@ -5,6 +5,7 @@ from miniJavaExprParser import *
 from miniJavaExprListener import *
 from errorOptimization import *
 from lexErrorDetection import *
+from semanticErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -18,6 +19,8 @@ def main(filename):
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
+    semanticErrorDetector = semanticErrorDetection()
+    semanticErrorDetector.visit(tree)
 
 if __name__ == "__main__":
     main("./testCode/Factorial.java")
