@@ -24,7 +24,7 @@ statement : '{' (statement)* '}'                                    # blockState
           | 'while' '(' expression ')' statement                    # whileStatement
           | 'System.out.println' '(' expression ')' ';'             # printStatement
           | IDENTIFIER '=' expression ';'                           # assignStatement
-          | IDENTIFIER '[' expression ']' '=' expression ';'        # assignStatement
+          | IDENTIFIER '[' expression ']' '=' expression ';'        # arrayAssignStatement
           ;
 
 expression : expression op=('&&' | '<' | '+' | '-' | '*') expression                   # operationExpr

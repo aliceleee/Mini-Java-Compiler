@@ -693,13 +693,28 @@ public class miniJavaExprParser extends Parser {
 			if ( listener instanceof miniJavaExprListener ) ((miniJavaExprListener)listener).exitBlockStatement(this);
 		}
 	}
-	public static class AssignStatementContext extends StatementContext {
+	public static class ArrayAssignStatementContext extends StatementContext {
 		public TerminalNode IDENTIFIER() { return getToken(miniJavaExprParser.IDENTIFIER, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
+		}
+		public ArrayAssignStatementContext(StatementContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof miniJavaExprListener ) ((miniJavaExprListener)listener).enterArrayAssignStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof miniJavaExprListener ) ((miniJavaExprListener)listener).exitArrayAssignStatement(this);
+		}
+	}
+	public static class AssignStatementContext extends StatementContext {
+		public TerminalNode IDENTIFIER() { return getToken(miniJavaExprParser.IDENTIFIER, 0); }
+		public ExpressionContext expression() {
+			return getRuleContext(ExpressionContext.class,0);
 		}
 		public AssignStatementContext(StatementContext ctx) { copyFrom(ctx); }
 		@Override
@@ -831,7 +846,7 @@ public class miniJavaExprParser extends Parser {
 				}
 				break;
 			case 6:
-				_localctx = new AssignStatementContext(_localctx);
+				_localctx = new ArrayAssignStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(143);
@@ -967,6 +982,7 @@ public class miniJavaExprParser extends Parser {
 		}
 	}
 	public static class OperationExprContext extends ExpressionContext {
+		public Token op;
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
@@ -1174,9 +1190,10 @@ public class miniJavaExprParser extends Parser {
 						setState(176);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
 						setState(177);
+						((OperationExprContext)_localctx).op = _input.LT(1);
 						_la = _input.LA(1);
 						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27))) != 0)) ) {
-						_errHandler.recoverInline(this);
+							((OperationExprContext)_localctx).op = (Token)_errHandler.recoverInline(this);
 						}
 						else {
 							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;

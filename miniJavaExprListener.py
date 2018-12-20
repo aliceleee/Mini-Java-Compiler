@@ -134,6 +134,15 @@ class miniJavaExprListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by miniJavaExprParser#arrayAssignStatement.
+    def enterArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
+        pass
+
+    # Exit a parse tree produced by miniJavaExprParser#arrayAssignStatement.
+    def exitArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
+        pass
+
+
     # Enter a parse tree produced by miniJavaExprParser#constIntExpr.
     def enterConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
         pass

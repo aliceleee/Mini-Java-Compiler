@@ -165,6 +165,18 @@ public interface miniJavaExprListener extends ParseTreeListener {
 	 */
 	void exitAssignStatement(miniJavaExprParser.AssignStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code arrayAssignStatement}
+	 * labeled alternative in {@link miniJavaExprParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayAssignStatement(miniJavaExprParser.ArrayAssignStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code arrayAssignStatement}
+	 * labeled alternative in {@link miniJavaExprParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayAssignStatement(miniJavaExprParser.ArrayAssignStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code constIntExpr}
 	 * labeled alternative in {@link miniJavaExprParser#expression}.
 	 * @param ctx the parse tree

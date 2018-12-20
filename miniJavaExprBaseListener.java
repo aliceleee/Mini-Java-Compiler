@@ -183,6 +183,18 @@ public class miniJavaExprBaseListener implements miniJavaExprListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterArrayAssignStatement(miniJavaExprParser.ArrayAssignStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrayAssignStatement(miniJavaExprParser.ArrayAssignStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConstIntExpr(miniJavaExprParser.ConstIntExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
