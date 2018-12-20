@@ -1,244 +1,240 @@
 # Generated from miniJavaExpr.g4 by ANTLR 4.7.2
 from antlr4 import *
-if __name__ is not None and "." in __name__:
-    from .miniJavaExprParser import miniJavaExprParser
-else:
-    from miniJavaExprParser import miniJavaExprParser
 
 # This class defines a complete listener for a parse tree produced by miniJavaExprParser.
 class miniJavaExprListener(ParseTreeListener):
 
     # Enter a parse tree produced by miniJavaExprParser#goal.
-    def enterGoal(self, ctx:miniJavaExprParser.GoalContext):
+    def enterGoal(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#goal.
-    def exitGoal(self, ctx:miniJavaExprParser.GoalContext):
+    def exitGoal(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#mainclass.
-    def enterMainclass(self, ctx:miniJavaExprParser.MainclassContext):
+    def enterMainclass(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#mainclass.
-    def exitMainclass(self, ctx:miniJavaExprParser.MainclassContext):
+    def exitMainclass(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#classdeclaration.
-    def enterClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
+    def enterClassdeclaration(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#classdeclaration.
-    def exitClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
+    def exitClassdeclaration(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#vardeclaration.
-    def enterVardeclaration(self, ctx:miniJavaExprParser.VardeclarationContext):
+    def enterVardeclaration(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#vardeclaration.
-    def exitVardeclaration(self, ctx:miniJavaExprParser.VardeclarationContext):
+    def exitVardeclaration(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#methoddeclaration.
-    def enterMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
+    def enterMethoddeclaration(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#methoddeclaration.
-    def exitMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
+    def exitMethoddeclaration(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#arraymjtype.
-    def enterArraymjtype(self, ctx:miniJavaExprParser.ArraymjtypeContext):
+    def enterArraymjtype(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#arraymjtype.
-    def exitArraymjtype(self, ctx:miniJavaExprParser.ArraymjtypeContext):
+    def exitArraymjtype(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#booleanmjtype.
-    def enterBooleanmjtype(self, ctx:miniJavaExprParser.BooleanmjtypeContext):
+    def enterBooleanmjtype(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#booleanmjtype.
-    def exitBooleanmjtype(self, ctx:miniJavaExprParser.BooleanmjtypeContext):
+    def exitBooleanmjtype(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#intmjtype.
-    def enterIntmjtype(self, ctx:miniJavaExprParser.IntmjtypeContext):
+    def enterIntmjtype(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#intmjtype.
-    def exitIntmjtype(self, ctx:miniJavaExprParser.IntmjtypeContext):
+    def exitIntmjtype(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#identifiermjtype.
-    def enterIdentifiermjtype(self, ctx:miniJavaExprParser.IdentifiermjtypeContext):
+    def enterIdentifiermjtype(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#identifiermjtype.
-    def exitIdentifiermjtype(self, ctx:miniJavaExprParser.IdentifiermjtypeContext):
+    def exitIdentifiermjtype(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#blockStatement.
-    def enterBlockStatement(self, ctx:miniJavaExprParser.BlockStatementContext):
+    def enterBlockStatement(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#blockStatement.
-    def exitBlockStatement(self, ctx:miniJavaExprParser.BlockStatementContext):
+    def exitBlockStatement(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#ifStatement.
-    def enterIfStatement(self, ctx:miniJavaExprParser.IfStatementContext):
+    def enterIfStatement(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#ifStatement.
-    def exitIfStatement(self, ctx:miniJavaExprParser.IfStatementContext):
+    def exitIfStatement(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#whileStatement.
-    def enterWhileStatement(self, ctx:miniJavaExprParser.WhileStatementContext):
+    def enterWhileStatement(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#whileStatement.
-    def exitWhileStatement(self, ctx:miniJavaExprParser.WhileStatementContext):
+    def exitWhileStatement(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#printStatement.
-    def enterPrintStatement(self, ctx:miniJavaExprParser.PrintStatementContext):
+    def enterPrintStatement(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#printStatement.
-    def exitPrintStatement(self, ctx:miniJavaExprParser.PrintStatementContext):
+    def exitPrintStatement(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#assignStatement.
-    def enterAssignStatement(self, ctx:miniJavaExprParser.AssignStatementContext):
+    def enterAssignStatement(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#assignStatement.
-    def exitAssignStatement(self, ctx:miniJavaExprParser.AssignStatementContext):
+    def exitAssignStatement(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#constIntExpr.
-    def enterConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
+    def enterConstIntExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#constIntExpr.
-    def exitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
+    def exitConstIntExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#createClassExpr.
-    def enterCreateClassExpr(self, ctx:miniJavaExprParser.CreateClassExprContext):
+    def enterCreateClassExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#createClassExpr.
-    def exitCreateClassExpr(self, ctx:miniJavaExprParser.CreateClassExprContext):
+    def exitCreateClassExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#arraylenExpr.
-    def enterArraylenExpr(self, ctx:miniJavaExprParser.ArraylenExprContext):
+    def enterArraylenExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#arraylenExpr.
-    def exitArraylenExpr(self, ctx:miniJavaExprParser.ArraylenExprContext):
+    def exitArraylenExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#thisExpr.
-    def enterThisExpr(self, ctx:miniJavaExprParser.ThisExprContext):
+    def enterThisExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#thisExpr.
-    def exitThisExpr(self, ctx:miniJavaExprParser.ThisExprContext):
+    def exitThisExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#createArrayExpr.
-    def enterCreateArrayExpr(self, ctx:miniJavaExprParser.CreateArrayExprContext):
+    def enterCreateArrayExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#createArrayExpr.
-    def exitCreateArrayExpr(self, ctx:miniJavaExprParser.CreateArrayExprContext):
+    def exitCreateArrayExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#arrayValExpr.
-    def enterArrayValExpr(self, ctx:miniJavaExprParser.ArrayValExprContext):
+    def enterArrayValExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#arrayValExpr.
-    def exitArrayValExpr(self, ctx:miniJavaExprParser.ArrayValExprContext):
+    def exitArrayValExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#constIdenExpr.
-    def enterConstIdenExpr(self, ctx:miniJavaExprParser.ConstIdenExprContext):
+    def enterConstIdenExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#constIdenExpr.
-    def exitConstIdenExpr(self, ctx:miniJavaExprParser.ConstIdenExprContext):
+    def exitConstIdenExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#operationExpr.
-    def enterOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
+    def enterOperationExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#operationExpr.
-    def exitOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
+    def exitOperationExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#oppExpr.
-    def enterOppExpr(self, ctx:miniJavaExprParser.OppExprContext):
+    def enterOppExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#oppExpr.
-    def exitOppExpr(self, ctx:miniJavaExprParser.OppExprContext):
+    def exitOppExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#prioExpr.
-    def enterPrioExpr(self, ctx:miniJavaExprParser.PrioExprContext):
+    def enterPrioExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#prioExpr.
-    def exitPrioExpr(self, ctx:miniJavaExprParser.PrioExprContext):
+    def exitPrioExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#classPropExpr.
-    def enterClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
+    def enterClassPropExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#classPropExpr.
-    def exitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
+    def exitClassPropExpr(self, ctx):
         pass
 
 
     # Enter a parse tree produced by miniJavaExprParser#constBooleanExpr.
-    def enterConstBooleanExpr(self, ctx:miniJavaExprParser.ConstBooleanExprContext):
+    def enterConstBooleanExpr(self, ctx):
         pass
 
     # Exit a parse tree produced by miniJavaExprParser#constBooleanExpr.
-    def exitConstBooleanExpr(self, ctx:miniJavaExprParser.ConstBooleanExprContext):
+    def exitConstBooleanExpr(self, ctx):
         pass
 
 
