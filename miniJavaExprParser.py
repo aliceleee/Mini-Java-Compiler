@@ -8,7 +8,7 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3*")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3)")
         buf.write("\u00d2\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\3\2\3\2\7\2\25\n\2\f\2\16\2\30\13\2\3")
         buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
@@ -31,46 +31,46 @@ def serializedATN():
         buf.write("\2\2\2\fn\3\2\2\2\16\u0099\3\2\2\2\20\u00b0\3\2\2\2\22")
         buf.write("\26\5\4\3\2\23\25\5\6\4\2\24\23\3\2\2\2\25\30\3\2\2\2")
         buf.write("\26\24\3\2\2\2\26\27\3\2\2\2\27\3\3\2\2\2\30\26\3\2\2")
-        buf.write("\2\31\32\7\3\2\2\32\33\7(\2\2\33\34\7\4\2\2\34\35\7\5")
+        buf.write("\2\31\32\7\3\2\2\32\33\7\'\2\2\33\34\7\4\2\2\34\35\7\5")
         buf.write("\2\2\35\36\7\6\2\2\36\37\7\7\2\2\37 \7\b\2\2 !\7\t\2\2")
-        buf.write("!\"\7\n\2\2\"#\7\13\2\2#$\7\f\2\2$%\7(\2\2%&\7\r\2\2&")
-        buf.write("\'\7\4\2\2\'(\5\16\b\2()\7\16\2\2)*\7\16\2\2*\5\3\2\2")
-        buf.write("\2+,\7\3\2\2,/\7(\2\2-.\7\17\2\2.\60\7(\2\2/-\3\2\2\2")
-        buf.write("/\60\3\2\2\2\60\61\3\2\2\2\61\65\7\4\2\2\62\64\5\b\5\2")
-        buf.write("\63\62\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2")
-        buf.write("\2\66;\3\2\2\2\67\65\3\2\2\28:\5\n\6\298\3\2\2\2:=\3\2")
-        buf.write("\2\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\7\16\2")
-        buf.write("\2?\7\3\2\2\2@A\5\f\7\2AB\7(\2\2BC\7\20\2\2C\t\3\2\2\2")
-        buf.write("DE\7\5\2\2EF\5\f\7\2FG\7(\2\2GS\7\t\2\2HI\5\f\7\2IP\7")
-        buf.write("(\2\2JK\7\21\2\2KL\5\f\7\2LM\7(\2\2MO\3\2\2\2NJ\3\2\2")
-        buf.write("\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2QT\3\2\2\2RP\3\2\2\2S")
-        buf.write("H\3\2\2\2ST\3\2\2\2TU\3\2\2\2UV\7\r\2\2VZ\7\4\2\2WY\5")
-        buf.write("\b\5\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2\2\2Z[\3\2\2\2[`\3\2")
-        buf.write("\2\2\\Z\3\2\2\2]_\5\16\b\2^]\3\2\2\2_b\3\2\2\2`^\3\2\2")
-        buf.write("\2`a\3\2\2\2ac\3\2\2\2b`\3\2\2\2cd\7\22\2\2de\5\20\t\2")
-        buf.write("ef\7\20\2\2fg\7\16\2\2g\13\3\2\2\2hi\7\23\2\2ij\7\13\2")
-        buf.write("\2jo\7\f\2\2ko\7\24\2\2lo\7\23\2\2mo\7(\2\2nh\3\2\2\2")
-        buf.write("nk\3\2\2\2nl\3\2\2\2nm\3\2\2\2o\r\3\2\2\2pt\7\4\2\2qs")
-        buf.write("\5\16\b\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2\2uw\3")
-        buf.write("\2\2\2vt\3\2\2\2w\u009a\7\16\2\2xy\7\25\2\2yz\7\t\2\2")
-        buf.write("z{\5\20\t\2{|\7\r\2\2|}\5\16\b\2}~\7\26\2\2~\177\5\16")
-        buf.write("\b\2\177\u009a\3\2\2\2\u0080\u0081\7\27\2\2\u0081\u0082")
-        buf.write("\7\t\2\2\u0082\u0083\5\20\t\2\u0083\u0084\7\r\2\2\u0084")
-        buf.write("\u0085\5\16\b\2\u0085\u009a\3\2\2\2\u0086\u0087\7\30\2")
-        buf.write("\2\u0087\u0088\7\t\2\2\u0088\u0089\5\20\t\2\u0089\u008a")
-        buf.write("\7\r\2\2\u008a\u008b\7\20\2\2\u008b\u009a\3\2\2\2\u008c")
-        buf.write("\u008d\7(\2\2\u008d\u008e\7\31\2\2\u008e\u008f\5\20\t")
-        buf.write("\2\u008f\u0090\7\20\2\2\u0090\u009a\3\2\2\2\u0091\u0092")
-        buf.write("\7(\2\2\u0092\u0093\7\13\2\2\u0093\u0094\5\20\t\2\u0094")
-        buf.write("\u0095\7\f\2\2\u0095\u0096\7\31\2\2\u0096\u0097\5\20\t")
-        buf.write("\2\u0097\u0098\7\20\2\2\u0098\u009a\3\2\2\2\u0099p\3\2")
-        buf.write("\2\2\u0099x\3\2\2\2\u0099\u0080\3\2\2\2\u0099\u0086\3")
-        buf.write("\2\2\2\u0099\u008c\3\2\2\2\u0099\u0091\3\2\2\2\u009a\17")
-        buf.write("\3\2\2\2\u009b\u009c\b\t\1\2\u009c\u00b1\7)\2\2\u009d")
-        buf.write("\u00b1\7*\2\2\u009e\u00b1\7(\2\2\u009f\u00b1\7!\2\2\u00a0")
+        buf.write("!\"\7\n\2\2\"#\7\13\2\2#$\7\f\2\2$%\7\'\2\2%&\7\r\2\2")
+        buf.write("&\'\7\4\2\2\'(\5\16\b\2()\7\16\2\2)*\7\16\2\2*\5\3\2\2")
+        buf.write("\2+,\7\3\2\2,/\7\'\2\2-.\7\17\2\2.\60\7\'\2\2/-\3\2\2")
+        buf.write("\2/\60\3\2\2\2\60\61\3\2\2\2\61\65\7\4\2\2\62\64\5\b\5")
+        buf.write("\2\63\62\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2")
+        buf.write("\2\2\66;\3\2\2\2\67\65\3\2\2\28:\5\n\6\298\3\2\2\2:=\3")
+        buf.write("\2\2\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\7\16")
+        buf.write("\2\2?\7\3\2\2\2@A\5\f\7\2AB\7\'\2\2BC\7\20\2\2C\t\3\2")
+        buf.write("\2\2DE\7\5\2\2EF\5\f\7\2FG\7\'\2\2GS\7\t\2\2HI\5\f\7\2")
+        buf.write("IP\7\'\2\2JK\7\21\2\2KL\5\f\7\2LM\7\'\2\2MO\3\2\2\2NJ")
+        buf.write("\3\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2QT\3\2\2\2RP\3\2")
+        buf.write("\2\2SH\3\2\2\2ST\3\2\2\2TU\3\2\2\2UV\7\r\2\2VZ\7\4\2\2")
+        buf.write("WY\5\b\5\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2\2\2Z[\3\2\2\2[`")
+        buf.write("\3\2\2\2\\Z\3\2\2\2]_\5\16\b\2^]\3\2\2\2_b\3\2\2\2`^\3")
+        buf.write("\2\2\2`a\3\2\2\2ac\3\2\2\2b`\3\2\2\2cd\7\22\2\2de\5\20")
+        buf.write("\t\2ef\7\20\2\2fg\7\16\2\2g\13\3\2\2\2hi\7\23\2\2ij\7")
+        buf.write("\13\2\2jo\7\f\2\2ko\7\24\2\2lo\7\23\2\2mo\7\'\2\2nh\3")
+        buf.write("\2\2\2nk\3\2\2\2nl\3\2\2\2nm\3\2\2\2o\r\3\2\2\2pt\7\4")
+        buf.write("\2\2qs\5\16\b\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2")
+        buf.write("\2uw\3\2\2\2vt\3\2\2\2w\u009a\7\16\2\2xy\7\25\2\2yz\7")
+        buf.write("\t\2\2z{\5\20\t\2{|\7\r\2\2|}\5\16\b\2}~\7\26\2\2~\177")
+        buf.write("\5\16\b\2\177\u009a\3\2\2\2\u0080\u0081\7\27\2\2\u0081")
+        buf.write("\u0082\7\t\2\2\u0082\u0083\5\20\t\2\u0083\u0084\7\r\2")
+        buf.write("\2\u0084\u0085\5\16\b\2\u0085\u009a\3\2\2\2\u0086\u0087")
+        buf.write("\7\30\2\2\u0087\u0088\7\t\2\2\u0088\u0089\5\20\t\2\u0089")
+        buf.write("\u008a\7\r\2\2\u008a\u008b\7\20\2\2\u008b\u009a\3\2\2")
+        buf.write("\2\u008c\u008d\7\'\2\2\u008d\u008e\7\31\2\2\u008e\u008f")
+        buf.write("\5\20\t\2\u008f\u0090\7\20\2\2\u0090\u009a\3\2\2\2\u0091")
+        buf.write("\u0092\7\'\2\2\u0092\u0093\7\13\2\2\u0093\u0094\5\20\t")
+        buf.write("\2\u0094\u0095\7\f\2\2\u0095\u0096\7\31\2\2\u0096\u0097")
+        buf.write("\5\20\t\2\u0097\u0098\7\20\2\2\u0098\u009a\3\2\2\2\u0099")
+        buf.write("p\3\2\2\2\u0099x\3\2\2\2\u0099\u0080\3\2\2\2\u0099\u0086")
+        buf.write("\3\2\2\2\u0099\u008c\3\2\2\2\u0099\u0091\3\2\2\2\u009a")
+        buf.write("\17\3\2\2\2\u009b\u009c\b\t\1\2\u009c\u00b1\7(\2\2\u009d")
+        buf.write("\u00b1\7)\2\2\u009e\u00b1\7\'\2\2\u009f\u00b1\7!\2\2\u00a0")
         buf.write("\u00a1\7\"\2\2\u00a1\u00a2\7\23\2\2\u00a2\u00a3\7\13\2")
         buf.write("\2\u00a3\u00a4\5\20\t\2\u00a4\u00a5\7\f\2\2\u00a5\u00b1")
-        buf.write("\3\2\2\2\u00a6\u00a7\7\"\2\2\u00a7\u00a8\7(\2\2\u00a8")
+        buf.write("\3\2\2\2\u00a6\u00a7\7\"\2\2\u00a7\u00a8\7\'\2\2\u00a8")
         buf.write("\u00a9\7\t\2\2\u00a9\u00b1\7\r\2\2\u00aa\u00ab\7#\2\2")
         buf.write("\u00ab\u00b1\5\20\t\4\u00ac\u00ad\7\t\2\2\u00ad\u00ae")
         buf.write("\5\20\t\2\u00ae\u00af\7\r\2\2\u00af\u00b1\3\2\2\2\u00b0")
@@ -82,7 +82,7 @@ def serializedATN():
         buf.write("\2\2\u00b7\u00b8\5\20\t\2\u00b8\u00b9\7\f\2\2\u00b9\u00cd")
         buf.write("\3\2\2\2\u00ba\u00bb\f\f\2\2\u00bb\u00bc\7\37\2\2\u00bc")
         buf.write("\u00cd\7 \2\2\u00bd\u00be\f\13\2\2\u00be\u00bf\7\37\2")
-        buf.write("\2\u00bf\u00c0\7(\2\2\u00c0\u00c9\7\t\2\2\u00c1\u00c6")
+        buf.write("\2\u00bf\u00c0\7\'\2\2\u00c0\u00c9\7\t\2\2\u00c1\u00c6")
         buf.write("\5\20\t\2\u00c2\u00c3\7\21\2\2\u00c3\u00c5\5\20\t\2\u00c4")
         buf.write("\u00c2\3\2\2\2\u00c5\u00c8\3\2\2\2\u00c6\u00c4\3\2\2\2")
         buf.write("\u00c6\u00c7\3\2\2\2\u00c7\u00ca\3\2\2\2\u00c8\u00c6\3")
@@ -122,8 +122,7 @@ class miniJavaExprParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "WS", "MULTILINE_COMMENT", 
-                      "LINE_COMMENT", "RESERVED_KEYWORD", "IDENTIFIER", 
-                      "INT", "BOOLEAN" ]
+                      "LINE_COMMENT", "IDENTIFIER", "INT", "BOOLEAN" ]
 
     RULE_goal = 0
     RULE_mainclass = 1
@@ -174,10 +173,9 @@ class miniJavaExprParser ( Parser ):
     WS=34
     MULTILINE_COMMENT=35
     LINE_COMMENT=36
-    RESERVED_KEYWORD=37
-    IDENTIFIER=38
-    INT=39
-    BOOLEAN=40
+    IDENTIFIER=37
+    INT=38
+    BOOLEAN=39
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -215,6 +213,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitGoal" ):
                 listener.exitGoal(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitGoal" ):
+                return visitor.visitGoal(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -273,6 +277,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMainclass" ):
                 listener.exitMainclass(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMainclass" ):
+                return visitor.visitMainclass(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -363,6 +373,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitClassdeclaration" ):
                 listener.exitClassdeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassdeclaration" ):
+                return visitor.visitClassdeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -444,6 +460,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitVardeclaration" ):
                 listener.exitVardeclaration(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVardeclaration" ):
+                return visitor.visitVardeclaration(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
 
@@ -515,6 +537,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitMethoddeclaration" ):
                 listener.exitMethoddeclaration(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethoddeclaration" ):
+                return visitor.visitMethoddeclaration(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -633,6 +661,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitIdentifiermjtype" ):
                 listener.exitIdentifiermjtype(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifiermjtype" ):
+                return visitor.visitIdentifiermjtype(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class IntmjtypeContext(MjtypeContext):
 
@@ -648,6 +682,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIntmjtype" ):
                 listener.exitIntmjtype(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIntmjtype" ):
+                return visitor.visitIntmjtype(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ArraymjtypeContext(MjtypeContext):
@@ -665,6 +705,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitArraymjtype" ):
                 listener.exitArraymjtype(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArraymjtype" ):
+                return visitor.visitArraymjtype(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class BooleanmjtypeContext(MjtypeContext):
 
@@ -680,6 +726,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitBooleanmjtype" ):
                 listener.exitBooleanmjtype(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBooleanmjtype" ):
+                return visitor.visitBooleanmjtype(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -770,6 +822,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitWhileStatement" ):
                 listener.exitWhileStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitWhileStatement" ):
+                return visitor.visitWhileStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class PrintStatementContext(StatementContext):
 
@@ -788,6 +846,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitPrintStatement" ):
                 listener.exitPrintStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrintStatement" ):
+                return visitor.visitPrintStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class BlockStatementContext(StatementContext):
@@ -810,6 +874,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitBlockStatement" ):
                 listener.exitBlockStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockStatement" ):
+                return visitor.visitBlockStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class AssignStatementContext(StatementContext):
@@ -835,6 +905,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitAssignStatement" ):
                 listener.exitAssignStatement(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignStatement" ):
+                return visitor.visitAssignStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class IfStatementContext(StatementContext):
 
@@ -859,6 +935,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIfStatement" ):
                 listener.exitIfStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatement" ):
+                return visitor.visitIfStatement(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1013,6 +1095,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitConstIntExpr" ):
                 listener.exitConstIntExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstIntExpr" ):
+                return visitor.visitConstIntExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class CreateClassExprContext(ExpressionContext):
 
@@ -1030,6 +1118,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCreateClassExpr" ):
                 listener.exitCreateClassExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreateClassExpr" ):
+                return visitor.visitCreateClassExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ArraylenExprContext(ExpressionContext):
@@ -1050,6 +1144,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitArraylenExpr" ):
                 listener.exitArraylenExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArraylenExpr" ):
+                return visitor.visitArraylenExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ThisExprContext(ExpressionContext):
 
@@ -1065,6 +1165,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitThisExpr" ):
                 listener.exitThisExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitThisExpr" ):
+                return visitor.visitThisExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class CreateArrayExprContext(ExpressionContext):
@@ -1084,6 +1190,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitCreateArrayExpr" ):
                 listener.exitCreateArrayExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreateArrayExpr" ):
+                return visitor.visitCreateArrayExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ArrayValExprContext(ExpressionContext):
@@ -1107,6 +1219,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitArrayValExpr" ):
                 listener.exitArrayValExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayValExpr" ):
+                return visitor.visitArrayValExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ConstIdenExprContext(ExpressionContext):
 
@@ -1124,6 +1242,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitConstIdenExpr" ):
                 listener.exitConstIdenExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstIdenExpr" ):
+                return visitor.visitConstIdenExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class OperationExprContext(ExpressionContext):
@@ -1147,6 +1271,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitOperationExpr" ):
                 listener.exitOperationExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOperationExpr" ):
+                return visitor.visitOperationExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class OppExprContext(ExpressionContext):
 
@@ -1166,6 +1296,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitOppExpr" ):
                 listener.exitOppExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOppExpr" ):
+                return visitor.visitOppExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class PrioExprContext(ExpressionContext):
 
@@ -1184,6 +1320,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitPrioExpr" ):
                 listener.exitPrioExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrioExpr" ):
+                return visitor.visitPrioExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class ClassPropExprContext(ExpressionContext):
@@ -1209,6 +1351,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "exitClassPropExpr" ):
                 listener.exitClassPropExpr(self)
 
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassPropExpr" ):
+                return visitor.visitClassPropExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
 
     class ConstBooleanExprContext(ExpressionContext):
 
@@ -1226,6 +1374,12 @@ class miniJavaExprParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitConstBooleanExpr" ):
                 listener.exitConstBooleanExpr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstBooleanExpr" ):
+                return visitor.visitConstBooleanExpr(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 

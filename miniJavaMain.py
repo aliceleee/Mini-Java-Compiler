@@ -4,6 +4,7 @@ from miniJavaExprLexer import *
 from miniJavaExprParser import *
 from miniJavaExprListener import *
 from errorOptimization import *
+from lexErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -11,9 +12,12 @@ def main(filename):
     tokens = CommonTokenStream(lexer)
     parser = miniJavaExprParser(tokens)
     parser.removeErrorListeners()
-    parser.addErrorListener(miniJavaLexErrorHandler())
+    parser.addErrorListener(miniJavaErrorOptimization())
     tree = parser.goal()
     print(tree.toStringTree())
+
+    lexErrorDetector = lexErrorDetection()
+    lexErrorDetector.visit(tree)
 
 if __name__ == "__main__":
     main("./testCode/Factorial.java")
