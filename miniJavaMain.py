@@ -5,6 +5,7 @@ from miniJavaExprParser import *
 from miniJavaExprListener import *
 from errorOptimization import *
 from lexErrorDetection import *
+from exprErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -14,10 +15,15 @@ def main(filename):
     parser.removeErrorListeners()
     parser.addErrorListener(miniJavaErrorOptimization())
     tree = parser.goal()
-    print(tree.toStringTree())
+    # print(tree.toStringTree())
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
 
+    exprErrorDetector = exprErrorDetection()
+    exprErrorDetector.visit(tree)
+
+
 if __name__ == "__main__":
-    main("./testCode/Factorial.java")
+    # main("./testCode/Factorial.java")
+    main("./testCases/BinaryTree.java")
