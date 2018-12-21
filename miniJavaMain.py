@@ -15,7 +15,7 @@ def main(filename):
     parser.removeErrorListeners()
     parser.addErrorListener(miniJavaErrorOptimization())
     tree = parser.goal()
-    print(tree.toStringTree())
+    #print(tree.toStringTree())
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
