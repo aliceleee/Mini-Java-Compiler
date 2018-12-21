@@ -1,81 +1,77 @@
 # Generated from miniJavaExpr.g4 by ANTLR 4.7.2
 from antlr4 import *
-if __name__ is not None and "." in __name__:
-    from .miniJavaExprParser import miniJavaExprParser
-else:
-    from miniJavaExprParser import miniJavaExprParser
 
 # This class defines a complete generic visitor for a parse tree produced by miniJavaExprParser.
 
 class miniJavaExprVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by miniJavaExprParser#goal.
-    def visitGoal(self, ctx:miniJavaExprParser.GoalContext):
+    def visitGoal(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#mainclass.
-    def visitMainclass(self, ctx:miniJavaExprParser.MainclassContext):
+    def visitMainclass(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#classdeclaration.
-    def visitClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
+    def visitClassdeclaration(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#vardeclaration.
-    def visitVardeclaration(self, ctx:miniJavaExprParser.VardeclarationContext):
+    def visitVardeclaration(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#methoddeclaration.
-    def visitMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
+    def visitMethoddeclaration(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#arraymjtype.
-    def visitArraymjtype(self, ctx:miniJavaExprParser.ArraymjtypeContext):
+    def visitArraymjtype(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#booleanmjtype.
-    def visitBooleanmjtype(self, ctx:miniJavaExprParser.BooleanmjtypeContext):
+    def visitBooleanmjtype(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#intmjtype.
-    def visitIntmjtype(self, ctx:miniJavaExprParser.IntmjtypeContext):
+    def visitIntmjtype(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#identifiermjtype.
-    def visitIdentifiermjtype(self, ctx:miniJavaExprParser.IdentifiermjtypeContext):
+    def visitIdentifiermjtype(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#blockStatement.
-    def visitBlockStatement(self, ctx:miniJavaExprParser.BlockStatementContext):
+    def visitBlockStatement(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#ifStatement.
-    def visitIfStatement(self, ctx:miniJavaExprParser.IfStatementContext):
+    def visitIfStatement(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#whileStatement.
-    def visitWhileStatement(self, ctx:miniJavaExprParser.WhileStatementContext):
+    def visitWhileStatement(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#printStatement.
-    def visitPrintStatement(self, ctx:miniJavaExprParser.PrintStatementContext):
+    def visitPrintStatement(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#assignStatement.
-    def visitAssignStatement(self, ctx:miniJavaExprParser.AssignStatementContext):
+    def visitAssignStatement(self, ctx):
         return self.visitChildren(ctx)
 
 
@@ -85,64 +81,62 @@ class miniJavaExprVisitor(ParseTreeVisitor):
 
 
     # Visit a parse tree produced by miniJavaExprParser#constIntExpr.
-    def visitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
+    def visitConstIntExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#createClassExpr.
-    def visitCreateClassExpr(self, ctx:miniJavaExprParser.CreateClassExprContext):
+    def visitCreateClassExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#arraylenExpr.
-    def visitArraylenExpr(self, ctx:miniJavaExprParser.ArraylenExprContext):
+    def visitArraylenExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#thisExpr.
-    def visitThisExpr(self, ctx:miniJavaExprParser.ThisExprContext):
+    def visitThisExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#createArrayExpr.
-    def visitCreateArrayExpr(self, ctx:miniJavaExprParser.CreateArrayExprContext):
+    def visitCreateArrayExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#arrayValExpr.
-    def visitArrayValExpr(self, ctx:miniJavaExprParser.ArrayValExprContext):
+    def visitArrayValExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#constIdenExpr.
-    def visitConstIdenExpr(self, ctx:miniJavaExprParser.ConstIdenExprContext):
+    def visitConstIdenExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#operationExpr.
-    def visitOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
+    def visitOperationExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#oppExpr.
-    def visitOppExpr(self, ctx:miniJavaExprParser.OppExprContext):
+    def visitOppExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#prioExpr.
-    def visitPrioExpr(self, ctx:miniJavaExprParser.PrioExprContext):
+    def visitPrioExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#classPropExpr.
-    def visitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
+    def visitClassPropExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniJavaExprParser#constBooleanExpr.
-    def visitConstBooleanExpr(self, ctx:miniJavaExprParser.ConstBooleanExprContext):
+    def visitConstBooleanExpr(self, ctx):
         return self.visitChildren(ctx)
 
 
-
-del miniJavaExprParser
