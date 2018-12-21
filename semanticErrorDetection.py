@@ -1,3 +1,4 @@
+import antlr4
 from miniJavaExprVisitor import *
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
@@ -19,6 +20,10 @@ class semanticErrorDetection(miniJavaExprVisitor):
         self.methodname = ""
     def _lookupTable(self, identifier):
         return testSymbolTable.get(identifier, "undefined")
+    def _checkAttribute(self, templateClass, methodName):
+        return True
+    def _checkParams(self):
+        pass
     def typeCheck(self, identifier, expectedType):
         itype = self._lookupTable(identifier)
         if itype == "undefined": raise semanticException(identifier + " is used without defined.")
@@ -64,8 +69,8 @@ class semanticErrorDetection(miniJavaExprVisitor):
             print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
         else:
             exprtype = self.visit(ctx.expression())
-            if exprtype != idtype:
-                print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type " + idtype + " with type " + exprtype + ".")
+            if exprtype.type != idtype:
+                print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type " + idtype + " with type " + exprtype.type + ".")
         self.visitChildren(ctx)
     def visitArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
         identifier_node = ctx.IDENTIFIER()
@@ -79,53 +84,65 @@ class semanticErrorDetection(miniJavaExprVisitor):
         
         idxtype = self.visit(ctx.expression(0))
         idxexpr = ctx.expression(0)
-        print(idxexpr)
-        print(type(idxexpr))
-        print(dir(idxexpr))
         line = idxexpr.start.line, col = idxexpr.start.column
-        if idxtype != "int":
-            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + idxtype + ".")
+        if idxtype.type != "int":
+            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + idxtype.type + ".")
         
         # currently only int[] array type
         valtype = self.visit(ctx.expression(1))
         valexpr = ctx.expression(1)
         line = valexpr.start.line; col = valexpr.start.column
-        if valtype != "int":
-            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type int with type " + valtype + ".")
+        if valtype.type != "int":
+            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type int with type " + valtype.type + ".")
         self.visitChildren(ctx)
     def visitOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
         exp1 = ctx.expression(0); exp2 = ctx.expression(1)
         exp1type = self.visit(exp1)
         exp2type = self.visit(exp2)
         line = exp1.start.line; col = exp1.start.column
-        if exp1type != exp2type:
-            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, type " + exp1type + " can't calculated with type " + exp2type + ".")
+        if exp1type.type != exp2type.type:
+            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, type " + exp1type.type + " can't calculated with type " + exp2type.type + ".")
+            self.visitChildren(ctx)
+            return {"expr_type":"operation", "type":"undefined"}
         self.visitChildren(ctx)
-        return "operation"
+        return {"expr_type":"operation", "type":exp1type}
     def visitArrayValExpr(self, ctx:miniJavaExprParser.ArrayValExprContext):
         exp1 = ctx.expression(0); exp2 = ctx.expression(1)
         exp1type = self.visit(exp1)
         exp2type = self.visit(exp2)
-        if exp1type != "array":
+        if exp1type.type != "array":
             line = exp1.start.line; col = exp1.start.column
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + exp1type + " object is not iterable.")
-        if exp2type != "int":
+            print("Error(line " + str(line) + " , position " + str(col) + "): " + exp1type.type + " object is not iterable.")
+        if exp2type.type != "int":
             line = exp2.start.line; col = exp2.start.column
-            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + exp2type + ".")
+            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + exp2type.type + ".")
         self.visitChildren(ctx)
-        return "int"
+        return {"expr_type":"arrayVal","type":"int"}
     def visitArraylenExpr(self, ctx:miniJavaExprParser.ArraylenExprContext):
         exp = ctx.expression()
         exptype = self.visit(exp)
         line = exp.start.line; col = exp.start.column
-        if exptype != "array":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + exptype + " object doesn't have attribute length.")
+        if exptype.type != "array":
+            print("Error(line " + str(line) + " , position " + str(col) + "): " + exptype.type + " object doesn't have attribute length.")
         self.visitChildren(ctx)
-        return "int"
+        return {"expr_type":"arrayLen","type":"int"}
     def visitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
-        
+        # called method name
+        cmethodname = ctx.IDENTIFIER().getSymbol().text
+        # whether the caller is a class instance and whether this class has thie callee method
+        try: expr = ctx.expression(0)
+        except: expr = ctx.expression()
+        line = expr.start.line; col = expr.start.column
+        exprtype = self.visit(expr)
+        if exprtype.type != "class" and exprtype.type != "instance":
+            print("Error(line " + str(line) + " , position " + str(col) + "): " + exprtype.type + " object doesn't have attribute " + cmethodname + ".")
+        elif not self._checkAttribute(exprtype.template_class, cmethodname):
+            print("Error(line " + str(line) + " , position " + str(col) + "): class " + exptype.template_class + " doesn't have attribute " + cmethodname + ".")
+        # check the paramters
+        rtrType = 0 # return type of the callee method
+        ###
         self.visitChildren(ctx)
-        return "classProp"
+        return {"expr_type":"classProp", "type":rtrType}
     def visitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
         return "int"
     def visitConstBooleanExpr(self, ctx:miniJavaExprParser.ConstBooleanExprContext):
