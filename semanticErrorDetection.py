@@ -7,7 +7,7 @@ else:
 
 # A visitor class for detecting semantic errors
 
-testSymbolTable = {"Factorial":"class", "Fac":"class", "num":"int", "num_aux": "int", "ComputeFac":"method"}
+testSymbolTable = {"Factorial":"class", "Fac":"class", "num":"int", "num_aux": "int", "ComputeFac": "method"}
 
 class semanticException(Exception):
     def __init__(self, msg):
@@ -35,6 +35,9 @@ class semanticErrorDetection(miniJavaExprVisitor):
         #print("caller class: ", templateClass)
         #print("callee method: ", methodName)
         return True
+
+    def _methodInfo(self, methodName):
+        return {"return_type":"int","arg_list":[]}
     
     def typeCheck(self, identifier, expectedType):
         itype = self._lookupTable(identifier)["type"]
@@ -200,9 +203,9 @@ class semanticErrorDetection(miniJavaExprVisitor):
         elif not self._checkAttribute(exprtype["template_class"], cmethodname):
             print("Error(line " + str(line) + " , position " + str(col) + "): class " + exptype["template_class"] + " doesn't have attribute " + cmethodname + ".")
         # check the paramters
-        rtrType = "int" # return type of the callee method
+        rtrType = self._methodInfo(cmethodname) # return type of the callee method
         ###
-        return {"expr_type":"classProp", "type":rtrType}
+        return {"expr_type":"classProp", "type":rtrType["return_type"]}
     
     def visitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
         if self.debug:
