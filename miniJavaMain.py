@@ -6,6 +6,7 @@ from miniJavaExprListener import *
 from errorOptimization import *
 from lexErrorDetection import *
 from symbolTable import *
+from argErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -18,16 +19,16 @@ def main(filename):
     # print(tree.toStringTree())
 
     # build symbol table
-    symbolTable = symbolTable()
-    symbolTable.visit(tree)
+    symbol_table_handler = symbolTable()
+    symbol_table_handler.visit(tree)
+    symbol_table = symbol_table_handler.symbol_table
+    # print(symbol_table)
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
 
-    argErrorDetection = argErrorDetection()
-    argErrorDetection.visit(tree)
-
-
+    argErrorDetector = argErrorDetection(symbol_table)
+    argErrorDetector.visit(tree)
 
 
 if __name__ == "__main__":

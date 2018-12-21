@@ -45,16 +45,17 @@ def visit_method_node(table, ctx):
 
         if args_flag == 0:
             continue
+        
+        if str(ctx.getChild(child_index)) == ')':
+            break
 
         # mjtype
         if str(ctx.getChild(child_index))[0] == '[':
             arg_dict = {}
-            arg_dict[str(ctx.getChild(child_index + 1))] = ctx.getChild(child_index).getText()
+            arg_dict['arg_name'] = str(ctx.getChild(child_index + 1))
+            arg_dict['arg_type'] = ctx.getChild(child_index).getText()
             table[method_name]['arg_list'].append(arg_dict)
         
-        if str(ctx.getChild(child_index)) == ')':
-            break
-    
 
     for child_ctx in ctx.vardeclaration():
         visit_var_node(table, child_ctx)
@@ -64,6 +65,7 @@ class symbolTable(miniJavaExprVisitor):
 
     def __init__(self):
         super().__init__()
+        self.symbol_table = symbol_table
 
 
     def visitClassdeclaration(self, ctx):
