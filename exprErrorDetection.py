@@ -6,6 +6,7 @@ else:
 
 
 # A visitor class for detecting all expr error
+symbol_table = dict
 
 
 class ExprError(Exception):
@@ -15,7 +16,11 @@ class ExprError(Exception):
 
 
 class exprErrorDetection(ParseTreeVisitor):
+
     def __init__(self):
         super().__init__()
+
+    def visitVardeclaration(self, ctx:miniJavaExprParser.MainclassContext):
+        
     
-    
+
