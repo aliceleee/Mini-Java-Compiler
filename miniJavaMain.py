@@ -5,7 +5,7 @@ from miniJavaExprParser import *
 from miniJavaExprListener import *
 from errorOptimization import *
 from lexErrorDetection import *
-from exprErrorDetection import *
+from symbolTable import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -17,11 +17,17 @@ def main(filename):
     tree = parser.goal()
     # print(tree.toStringTree())
 
+    # build symbol table
+    symbolTable = symbolTable()
+    symbolTable.visit(tree)
+
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
 
-    exprErrorDetector = exprErrorDetection()
-    exprErrorDetector.visit(tree)
+    argErrorDetection = argErrorDetection()
+    argErrorDetection.visit(tree)
+
+
 
 
 if __name__ == "__main__":

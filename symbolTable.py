@@ -60,21 +60,10 @@ def visit_method_node(table, ctx):
         visit_var_node(table, child_ctx)
 
 
-class ExprError(Exception):
-    def __init__(self, msg):
-        super().__init__(msg)
-        self.msg = msg
-
-
-class exprErrorDetection(miniJavaExprVisitor):
+class symbolTable(miniJavaExprVisitor):
 
     def __init__(self):
         super().__init__()
-    
-
-    def visitVardeclaration(self, ctx):
-        # add to symbol table
-        symbol_table[str(ctx.getChild(1))] = ctx.mjtype().getText()
 
 
     def visitClassdeclaration(self, ctx):
