@@ -1,8 +1,4 @@
-from antlr4 import *
-if __name__ is not None and "." in __name__:
-    from .miniJavaExprParser import miniJavaExprParser
-else:
-    from miniJavaExprParser import miniJavaExprParser
+from miniJavaExprVisitor import *
 
 # A visitor class for detecting all lex error
 
@@ -12,7 +8,7 @@ class LexError(Exception):
     def __init__(self, msg):
         super().__init__(msg)
         self.msg = msg
-class lexErrorDetection(ParseTreeVisitor):
+class lexErrorDetection(miniJavaExprVisitor):
     def __init__(self):
         super().__init__()
     
