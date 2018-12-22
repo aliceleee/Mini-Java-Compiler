@@ -1,5 +1,6 @@
 from antlr4 import *
 from miniJavaExprVisitor import *
+from semanticErrorDetection import *
 from test import *
 
 if __name__ is not None and "." in __name__:
@@ -21,7 +22,7 @@ class argErrorDetection(semanticErrorDetection):
         self.classname = ""
         self.methodname = ""
         self.debug = False
-        super().__init__()
+        super().__init__(symbol_table)
     
 
     def visitMainclass(self, ctx):
@@ -91,6 +92,4 @@ class argErrorDetection(semanticErrorDetection):
                 else:
                     if arg_type['type'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
-
-
-        
+                        

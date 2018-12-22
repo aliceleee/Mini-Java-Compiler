@@ -1,0 +1,6 @@
+*.class
+*.java
+testCode/
+introduction/
+.vscode/
+__pycache__/

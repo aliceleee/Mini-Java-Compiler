@@ -7,6 +7,7 @@ from errorOptimization import *
 from lexErrorDetection import *
 from symbolTable import *
 from argErrorDetection import *
+from semanticErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -22,13 +23,15 @@ def main(filename):
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
     symbol_table = symbol_table_handler.symbol_table
-    # print(symbol_table)
+    # print(symbol_table['Tree']['Compare'])
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
+    # semanticErrorDetector = semanticErrorDetection()
+    # semanticErrorDetector.visit(tree)
 
-    argErrorDetector = argErrorDetection(symbol_table)
-    argErrorDetector.visit(tree)
+    # argErrorDetector = argErrorDetection(symbol_table)
+    # argErrorDetector.visit(tree)
 
 
 if __name__ == "__main__":
