@@ -57,7 +57,10 @@ def visit_method_node(table, ctx):
             table[method_name]['arg_list'].append(arg_dict)
     # see all params as defined var
     for d in table[method_name]["arg_list"]:
-        table[method_name][d['arg_name']] = {"type":d["arg_type"]}
+        if d["arg_type"] in mjtype_list:
+            table[method_name][d['arg_name']] = {"type":d["arg_type"]}
+        else:
+            table[method_name][d['arg_name']] = {"type":"instance", "template_class":d["arg_type"]}
         
     for child_ctx in ctx.vardeclaration():
         visit_var_node(table[method_name], child_ctx)

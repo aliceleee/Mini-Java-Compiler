@@ -7,7 +7,7 @@ else:
 
 # A visitor class for detecting semantic errors
 
-testSymbolTable = {"Factorial":"class", "Fac":"class", "num":"int", "num_aux": "int", "ComputeFac": "method"}
+mjtype_list = ['int[]', 'boolean', 'int']
 
 class semanticException(Exception):
     def __init__(self, msg):
@@ -15,13 +15,14 @@ class semanticException(Exception):
         self.msg = msg
 
 class semanticErrorDetection(miniJavaExprVisitor):
-    def __init__(self,symbolTable):
+    def __init__(self,symbolTable,debug=False):
         super().__init__()
         self.symbolTable = symbolTable
         # identify the action space
         self.classname = ""     # current class
         self.methodname = ""    # current method
-        self.debug = False
+        self.debug = debug
+    
     def _lookupTable(self, identifier):
         """
         look up identifier in the correspoding symbol table
@@ -29,83 +30,73 @@ class semanticErrorDetection(miniJavaExprVisitor):
         if identifier is an instance of a user-defined class, dict also contains 'template_class' attr
         if identifier is a method, dict also contains the params list attr 'param_list' and return type 'rtr_type'
         """
-        current_action_table = {}; class_global_table = {}
-        if self.methodname == "":
-            current_action_table = self.symbolTable.get(self.classname, {})
-        else:
-            current_action_table = self.symbolTable.get(self.classname, {}).get(self.methodname,{})
-        class_global_table = self.symbolTable.get(self.classname,{})
+        current_method_region = {}
+        current_class_region = self.symbolTable.get(self.classname,{})
+        if self.methodname != "":
+            current_method_region = current_class_region.get(self.methodname,{})
         
-        rtr = {}
-        if identifier in current_action_table:
-            rtr = current_action_table[identifier]
-        elif identifier in class_global_table:
-            rtr = class_global_table[identifier]
+        if identifier in current_method_region:
+            return current_method_region[identifier]
+        elif identifier in current_class_region:
+            if current_class_region[identifier]["type"] == "method":
+                rtr = {}
+                rtr["type"] = current_class_region[identifier]["type"]
+                rtr["return_type"] = current_class_region[identifier]["return_type"]
+                return rtr
+            else:
+                return current_class_region[identifier]
         elif identifier in self.symbolTable:
-            rtr["type"] = "class"
-            rtr["template_class"] = identifier
+            return {"type":"class", "template_class":identifier}
         else:
-            rtr["type"] = "undefined"
-        
-        return rtr
-    
-    def _checkAttribute(self, templateClass, methodName):
-        #print("caller class: ", templateClass)
-        #print("callee method: ", methodName)
-        class_attributes = self.symbolTable.get(templateClass,{})
-        has_flag = False
-        if methodName in class_attributes:
-            has_flag = True
-        return has_flag
+            return {"type":"undefined"}
 
-    def _methodInfo(self, methodName):
-        return {"return_type":"int","arg_list":[]}
-    
-    def typeCheck(self, identifier, expectedType):
-        itype = self._lookupTable(identifier)["type"]
-        if itype == "undefined": raise semanticException(identifier + " is used without defined.")
-        elif itype != expectedType: raise semanticException("Expected type '" + expectedType + "' , while get type '" + itype + "'.")
+    def _checkAttribute(self, classname, attriname):
+        class_region = self.symbolTable.get(classname, {})
+        if attriname in class_region:
+            return True
+        else:
+            return False
+
+    def _printErrMsg(self, line, col, msg):
+        print("Error(line " + str(line) + " , position " + str(col) + "): " + msg + ".")
     
     def visitMainclass(self, ctx:miniJavaExprParser.MainclassContext):
         if self.debug:
             print("visit main class")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
-
+        
         node = ctx.IDENTIFIER()[0]
         token = node.getSymbol()
         self.classname = token.text
         self.visitChildren(ctx)
-    
-    def visitClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
-        if self.debug:
-            print("visit class declaration")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
 
+    def visitClassdeclaration(self, ctx:miniJavaExprParser.ClassdeclarationContext):
         identifier_nodes = ctx.IDENTIFIER()
         if type(identifier_nodes) is type([]) and len(identifier_nodes) > 1:
             # has parent class
             cclass_node = identifier_nodes[0]; token = cclass_node.getSymbol(); self.classname = token.text
             pclass_node = identifier_nodes[1]; token = pclass_node.getSymbol()
-            try: self.typeCheck(token.text, 'class')
-            except Exception as e:
-                line = token.line; col = token.column 
-                print("Error(line " + str(line) + " , position " + str(col) + "): " + e.msg)
+            pclass_type = self._lookupTable(token)
+            line = token.line; col = token.column
+            if pclass_type["type"] == "undefined":
+                self._printErrMsg(line, col, token.text + " is used without defined")
+            elif pclass_type["type"] != "class":
+                self._printErrMsg(line, col, "Can't extends type " + pclass_type["type"])
         else:
             if type(identifier_nodes) is type([]) and len(identifier_nodes) == 1:
                 cclass_node = identifier_nodes[0]
             else:
                 cclass_node = identifier_nodes
-            token = cclass_node.getSymbol(); self.classname = token.text
-        self.visitChildren(ctx)
-    
-    def visitMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
+            token = cclass_node.getSymbol()
+            self.classname = token.text
+
         if self.debug:
-            print("visit method declaration")
+            print("visit class declaration")
             print("\tcurrent class: ", self.classname)
             print("\tcurrent method: ", self.methodname)
-        
+
+        self.visitChildren(ctx)
+
+    def visitMethoddeclaration(self, ctx:miniJavaExprParser.MethoddeclarationContext):
         identifier_nodes = ctx.IDENTIFIER()
         if type(identifier_nodes) is type([]) and len(identifier_nodes) > 1:
             node = identifier_nodes[0]; token = node.getSymbol()
@@ -116,9 +107,15 @@ class semanticErrorDetection(miniJavaExprVisitor):
             else:
                 node = identifier_nodes
             token = node.getSymbol()
-            self.methodname = token.text 
+            self.methodname = token.text
+
+        if self.debug:
+            print("visit method declaration")
+            print("\tcurrent class: ", self.classname)
+            print("\tcurrent method: ", self.methodname)
+
         self.visitChildren(ctx)
-    
+
     def visitAssignStatement(self, ctx:miniJavaExprParser.AssignStatementContext):
         if self.debug:
             print("visit assign statement")
@@ -127,21 +124,33 @@ class semanticErrorDetection(miniJavaExprVisitor):
         
         identifier_node = ctx.IDENTIFIER()
         token = identifier_node.getSymbol()
-        idinfo = self._lookupTable(token.text)
-        idtype = idinfo["type"]
+        idtype = self._lookupTable(token.text)
         line = token.line; col = token.column
-        if idtype == "undefined":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
+
+        if idtype["type"] == "undefined":
+            self._printErrMsg(line, col, token.text + " is used before defined")
+
+        exprtype = self.visit(ctx.expression())
+        if idtype["type"] != exprtype["type"]:
+            if idtype["type"] == "instance" and exprtype["type"] == "class":
+                if idtype["template_class"] != exprtype["template_class"]:
+                    errmsg = "Can't assign object " + exprtype["template_class"] + " to object " + idtype["template_class"]
+                    self._printErrMsg(line, col ,errmsg)
+            else:
+                errmsg = "Can't assign type " + exprtype["type"] + " to type " + idtype["type"]
+                self._printErrMsg(line, col, errmsg)
         else:
-            exprtype = self.visit(ctx.expression())
-            if idtype == "instance" and exprtype["type"] != 'class':
-                print("Error(line " + str(line) + " , position " + str(col) + "): Can't assign class " + idinfo.get("template_class") + " with type " + exprtype["type"] + ".")
-            elif idinfo.get("template_class") != exprtype.get("template_class"):
-                print("Error(line " + str(line) + " , position " + str(col) + "): Can't assign class " + idinfo.get("template_class") + " with class " + exprtype.get("template_class"))
-            elif exprtype["type"] != idtype:
-                print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type " + idtype + " with type " + exprtype["type"] + ".")
-        self.visitChildren(ctx)
+            if idtype["type"] == "instance":
+                if idtype["template_class"] != exprtype["template_class"]:
+                    errmsg = "Can't assign object " + exprtype["template_class"] + " to object " + idtype["template_class"]
+                    self._printErrMsg(line, col, errmsg)
     
+        #if self.debug:
+        #print("in assign statement, Identifier type: ", idtype)
+        #print("in assign statement, expression type: ", exprtype)
+
+        self.visitChildren(ctx)
+
     def visitArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
         if self.debug:
             print("visit array assign statement")
@@ -150,27 +159,32 @@ class semanticErrorDetection(miniJavaExprVisitor):
         
         identifier_node = ctx.IDENTIFIER()
         token = identifier_node.getSymbol()
-        idtype = self._lookupTable(token.text)["type"]
+        idtype = self._lookupTable(token.text)
         line = token.line; col = token.column
-        if idtype == "undefined":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
-        elif idtype != "int[]":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + idtype + " object is not iterable.")
+        if idtype["type"] == "undefined":
+            errmsg = token.text + " is used without defined"
+            self._printErrMsg(line, col, errmsg)
+        elif idtype["type"] != "int[]":
+            errmsg = idtype["type"] + " object is not iterable"
+            self._printErrMsg(line, col, errmsg)
         
-        idxtype = self.visit(ctx.expression(0))
         idxexpr = ctx.expression(0)
-        line = idxexpr.start.line, col = idxexpr.start.column
+        idxtype = self.visit(idxexpr)
+        line = idxexpr.start.line
+        col = idxexpr.start.column
         if idxtype["type"] != "int":
-            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + idxtype["type"] + ".")
+            self._printErrMsg(line, col, "array indices must be integers not " + idxtype["type"])
         
         # currently only int[] array type
-        valtype = self.visit(ctx.expression(1))
         valexpr = ctx.expression(1)
-        line = valexpr.start.line; col = valexpr.start.column
+        valtype = self.visit(valexpr)
+        line = valexpr.start.line
+        col = valexpr.start.column
         if valtype["type"] != "int":
-            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type int with type " + valtype["type"] + ".")
+            self._printErrMsg(line, col, "incompatible type, can't assign type int with type " + valtype["type"])
+        
         self.visitChildren(ctx)
-    
+
     def visitOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
         if self.debug:
             print("visit operation expression")
@@ -181,9 +195,11 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exp1type = self.visit(exp1)
         exp2type = self.visit(exp2)
         line = exp1.start.line; col = exp1.start.column
+
         if exp1type["type"] != exp2type["type"]:
-            print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, type " + exp1type["type"] + " can't calculated with type " + exp2type["type"] + ".")
+            self._printErrMsg(line, col, "Incompatible type, type " + exp1type["type"] + " can't calculated with type " + exp2type["type"])
             return {"expr_type":"operation", "type":"undefined"}
+
         return {"expr_type":"operation", "type":exp1type["type"]}
     
     def visitArrayValExpr(self, ctx:miniJavaExprParser.ArrayValExprContext):
@@ -197,10 +213,11 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exp2type = self.visit(exp2)
         if exp1type["type"] != "int[]":
             line = exp1.start.line; col = exp1.start.column
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + exp1type["type"] + " object is not iterable.")
+            self._printErrMsg(line, col, exp1type["type"] + " object is not iterable")
         if exp2type["type"] != "int":
             line = exp2.start.line; col = exp2.start.column
-            print("Error(line " + str(line) + " , position " + str(col) + "): array indices must be integers not " + exp2type["type"] + ".")
+            self._printErrMsg(line, col, "array indices must be integers not " + exp2type["type"])
+
         return {"expr_type":"arrayVal","type":"int"}
 
     def visitArraylenExpr(self, ctx:miniJavaExprParser.ArraylenExprContext):
@@ -213,7 +230,8 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exptype = self.visit(exp)
         line = exp.start.line; col = exp.start.column
         if exptype["type"] != "int[]":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + exptype["type"] + " object doesn't have attribute length.")
+            self._printErrMsg(line, col, exptype["type"] + " object doesn't have attribute length")
+
         return {"expr_type":"arrayLen","type":"int"}
     
     def visitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
@@ -231,32 +249,34 @@ class semanticErrorDetection(miniJavaExprVisitor):
         line = expr.start.line; col = expr.start.column
         exprtype = self.visit(expr)
         if exprtype["type"] != "class" and exprtype["type"] != "instance":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + exprtype["type"] + " object doesn't have attribute " + cmethodname + ".")
+            self._printErrMsg(line, col, exprtype["type"] + " object doesn't have attribute " + cmethodname)
         elif not self._checkAttribute(exprtype["template_class"], cmethodname):
-            print("Error(line " + str(line) + " , position " + str(col) + "): class " + exptype["template_class"] + " doesn't have attribute " + cmethodname + ".")
+            self._printErrMsg(line, col, "class " +  exptype["template_class"] + " doesn't have attribute " + cmethodname)
         
         # check the paramters
         # temporaly change self.classname to the caller classname
+        #print("in classProp, class instance type: ", exprtype)
+        
         currentClass = self.classname; currentMethod = self.methodname
         self.classname = exprtype["template_class"]; self.methodname = ""
         methodinfo = self._lookupTable(cmethodname)
         rtrType = methodinfo.get("return_type","undefined")
         self.classname = currentClass; self.methodname = currentMethod
 
-        return {"expr_type":"classProp", "type":rtrType}
+        if rtrType in mjtype_list:
+            return {"expr_type":"classProp", "type":rtrType}
+        else:
+            return {"expr_type":"classProp", "type":"instance", "template_class":rtrType}
     
     def visitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
         if self.debug:
             print("visit const int")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
 
         return {"expr_type":"constInt", "type":"int"}
+    
     def visitConstBooleanExpr(self, ctx:miniJavaExprParser.ConstBooleanExprContext):
         if self.debug:
             print("visit const boolean")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
 
         return {"expr_type":"constBoolean", "type":"boolean"}
     
@@ -273,8 +293,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         line = token.line; col = token.column 
         rtr = {"expr_type":"constIden"}
         if idtype["type"] == "undefined":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
-            rtr["type"] = "undefined"
+            self._printErrMsg(line, col, token.text + " is used without defined")
         for k,v in idtype.items():
             rtr[k] = v
         return rtr
@@ -288,34 +307,34 @@ class semanticErrorDetection(miniJavaExprVisitor):
         return {"expr_type":"this", "type":"class", "template_class":self.classname}
     
     def visitCreateClassExpr(self, ctx:miniJavaExprParser.CreateClassExprContext):
-        if self.debug:
-            print("visit create class expression")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
-        
         token = ctx.IDENTIFIER().getSymbol()
         identifier = token.text
+
+        if self.debug:
+            print("visit create class expression, new class name ", identifier)
+            print("\tcurrent class: ", self.classname)
+            print("\tcurrent method: ", self.methodname)
+
         line = token.line; col = token.column
         idtype = self._lookupTable(identifier)
         rtr = {"expr_type":"createClass"}
         if idtype["type"] == "undefined":
-            print("Error(line " + str(line) + " , position " + str(col) + "): " + identifier + " is used without defined.")
+            self._printErrMsg(line, col, identifier + " is used without defined")
         elif idtype["type"] != "class":
-            print("Error(line " + str(line) + " , position " + str(col) + "): Can't new type " + idtype["type"] + ".")
+            self._printErrMsg(line, col, "Can't new type " + idtype["type"])
         for k,v in idtype.items():
             rtr[k] = v
         return rtr
-
+    
     def visitCreateArrayExpr(self, ctx:miniJavaExprParser.CreateArrayExprContext):
         expr = ctx.expression()
         exprtype = self.visit(expr)
         line = expr.start.line; col = expr.start.column
         if exprtype["type"] != "int":
-            print("Error(line " + str(line) + " , position " + str(col) + "): Type error, expect type int but got type " + exprtype["type"] + ".")
-        rtr = {}
-        rtr["type"] = "int[]"
+            self._printErrMsg(line, col, "type error, expect type int but got type " + exprtype["type"])
+        rtr = {"type":"int[]", "expr_type":"createArray"}
         return rtr
-
+    
     def visitPrioExpr(self, ctx:miniJavaExprParser.PrintStatementContext):
         if self.debug:
             print("visit prio expr")

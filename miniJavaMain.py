@@ -7,7 +7,8 @@ from errorOptimization import *
 from lexErrorDetection import *
 from symbolTable import *
 from argErrorDetection import *
-from semanticErrorDetection import *
+#from semanticErrorDetection import *
+from semanticErrorDetection_re import *
 from errorFix import *
 
 def main(filename):
@@ -30,8 +31,8 @@ def main(filename):
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
-    #semanticErrorDetector = semanticErrorDetection(symbol_table)
-    #semanticErrorDetector.visit(tree)
+    semanticErrorDetector = semanticErrorDetection(symbol_table)
+    semanticErrorDetector.visit(tree)
 
     argErrorDetector = argErrorDetection(symbol_table)
     argErrorDetector.visit(tree)
@@ -40,5 +41,5 @@ def main(filename):
 
 
 if __name__ == "__main__":
-    # main("./testCode/Factorial.java")
-    main("./testCases/Factorial.java")
+    main("./testCode/BinaryTree.java")
+    #main("./testCases/Factorial.java")
