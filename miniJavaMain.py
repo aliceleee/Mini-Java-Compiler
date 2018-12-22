@@ -27,19 +27,21 @@ def main(filename):
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
     symbol_table = symbol_table_handler.symbol_table
-    print(symbol_table)
+    #print(symbol_table)
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
     semanticErrorDetector = semanticErrorDetection(symbol_table)
     semanticErrorDetector.visit(tree)
+    print("semantic finish")
 
-    argErrorDetector = argErrorDetection(symbol_table)
-    argErrorDetector.visit(tree)
+    #argErrorDetector = argErrorDetection(symbol_table)
+    #argErrorDetector.visit(tree)
+    #print ("arg finish")
 
     error_fixer(error_dict, filename)
 
 
 if __name__ == "__main__":
-    main("./testCode/BinaryTree.java")
+    main("./testCode/TreeVisitor.java")
     #main("./testCases/Factorial.java")

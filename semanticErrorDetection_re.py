@@ -9,11 +9,6 @@ else:
 
 mjtype_list = ['int[]', 'boolean', 'int']
 
-class semanticException(Exception):
-    def __init__(self, msg):
-        super().__init__(msg)
-        self.msg = msg
-
 class semanticErrorDetection(miniJavaExprVisitor):
     def __init__(self,symbolTable,debug=False):
         super().__init__()
@@ -234,6 +229,52 @@ class semanticErrorDetection(miniJavaExprVisitor):
 
         return {"expr_type":"arrayLen","type":"int"}
     
+    def _argCheck(self, ctx):
+        if self.debug:
+            print("visit ClassPropExpr")
+            print("\tcurrent class: ", self.classname)
+            print("\tcurrent method: ", self.methodname)
+        # get method name
+        method_name = str(ctx.getChild(2))
+        try:
+            expr = ctx.expression(0)
+        except:
+            expr = ctx.expression()
+        class_name = self.visit(expr)['template_class']
+
+        line = ctx.start.line
+        col = ctx.start.column
+        
+        # method_arg_list
+        arg_type_list = []
+        arg_first_flag = 0
+        for expr_ctx in ctx.expression():
+            if arg_first_flag == 0:
+                arg_first_flag = 1
+                continue
+            
+            exp_type = self.visit(expr_ctx)
+            arg_type_list.append(exp_type)
+        
+        arg_right_list = self.symbolTable[class_name][method_name]['arg_list']
+        rtr_type = self.symbolTable[class_name][method_name]['return_type']
+
+        # len of arg list
+        if len(arg_type_list) != len(arg_right_list):
+            print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Numbers.")
+        # arg type
+        else:
+            length = len(arg_right_list)
+            for i in range(length):
+                arg_type = arg_type_list[i]
+                if arg_type['type'] == 'instance':
+                    if arg_type['template_class'] != arg_right_list[i]['arg_type']:
+                        print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+                else:
+                    if arg_type['type'] != arg_right_list[i]['arg_type']:
+                        print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+        return
+
     def visitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):
         if self.debug:
             print("visit class property expression")
@@ -262,6 +303,8 @@ class semanticErrorDetection(miniJavaExprVisitor):
         methodinfo = self._lookupTable(cmethodname)
         rtrType = methodinfo.get("return_type","undefined")
         self.classname = currentClass; self.methodname = currentMethod
+
+        self._argCheck(ctx)
 
         if rtrType in mjtype_list:
             return {"expr_type":"classProp", "type":rtrType}

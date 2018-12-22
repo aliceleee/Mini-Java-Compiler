@@ -1,14 +1,14 @@
 from antlr4 import *
 from miniJavaExprVisitor import *
-from semanticErrorDetection import *
 from test import *
-from semanticErrorDetection import *
+from semanticErrorDetection_re import *
 
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
 else:
     from miniJavaExprParser import miniJavaExprParser
 
+mjtype_list = ['int[]', 'boolean', 'int']
 
 class argError(Exception):
     def __init__(self, msg):
@@ -23,7 +23,7 @@ class argErrorDetection(semanticErrorDetection):
         # self.classname = ""
         # self.methodname = ""
         self.debug = False
-        super().__init__()
+        super().__init__(symbol_table)
     
 
     # def visitMainclass(self, ctx):
@@ -53,7 +53,6 @@ class argErrorDetection(semanticErrorDetection):
     
 
     def visitClassPropExpr(self, ctx):
-        print('class')
         if self.debug:
             print("visit ClassPropExpr")
             print("\tcurrent class: ", self.classname)
@@ -98,4 +97,7 @@ class argErrorDetection(semanticErrorDetection):
                     if arg_type['type'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
         
-        return {'expr_type': 'classProp', 'type': rtr_type}
+        if rtr_type in mjtype_list:
+            return {"expr_type":"classProp", "type":rtr_type}
+        else:
+            return {"expr_type":"classProp", "type":"instance", "template_class":rtr_type}
