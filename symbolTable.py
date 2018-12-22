@@ -56,7 +56,6 @@ def visit_method_node(table, ctx):
             arg_dict['arg_type'] = ctx.getChild(child_index).getText()
             table[method_name]['arg_list'].append(arg_dict)
         
-
     for child_ctx in ctx.vardeclaration():
         visit_var_node(table, child_ctx)
 

@@ -23,17 +23,17 @@ def main(filename):
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
     symbol_table = symbol_table_handler.symbol_table
-    # print(symbol_table)
+    print(symbol_table)
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
-    semanticErrorDetector = semanticErrorDetection()
+    semanticErrorDetector = semanticErrorDetection(symbol_table)
     semanticErrorDetector.visit(tree)
 
-    argErrorDetector = argErrorDetection(symbol_table)
-    argErrorDetector.visit(tree)
+    #argErrorDetector = argErrorDetection(symbol_table)
+    #argErrorDetector.visit(tree)
 
 
 if __name__ == "__main__":
-    # main("./testCode/Factorial.java")
-    main("./testCases/BinaryTree.java")
+    main("./testCode/Factorial.java")
+    #main("./testCases/BinaryTree.java")

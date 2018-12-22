@@ -1,99 +1,97 @@
 # Generated from miniJavaExpr.g4 by ANTLR 4.7.2
 # encoding: utf-8
-from __future__ import print_function
 from antlr4 import *
 from io import StringIO
+from typing.io import TextIO
 import sys
 
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write(u"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3")
-        buf.write(u")\u00d2\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t")
-        buf.write(u"\7\4\b\t\b\4\t\t\t\3\2\3\2\7\2\25\n\2\f\2\16\2\30\13")
-        buf.write(u"\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
-        buf.write(u"\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4\60\n\4\3\4")
-        buf.write(u"\3\4\7\4\64\n\4\f\4\16\4\67\13\4\3\4\7\4:\n\4\f\4\16")
-        buf.write(u"\4=\13\4\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6")
-        buf.write(u"\3\6\3\6\3\6\3\6\3\6\7\6O\n\6\f\6\16\6R\13\6\5\6T\n\6")
-        buf.write(u"\3\6\3\6\3\6\7\6Y\n\6\f\6\16\6\\\13\6\3\6\7\6_\n\6\f")
-        buf.write(u"\6\16\6b\13\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7")
-        buf.write(u"\3\7\5\7o\n\7\3\b\3\b\7\bs\n\b\f\b\16\bv\13\b\3\b\3\b")
-        buf.write(u"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b")
-        buf.write(u"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b")
-        buf.write(u"\3\b\3\b\3\b\3\b\3\b\3\b\5\b\u009a\n\b\3\t\3\t\3\t\3")
-        buf.write(u"\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3")
-        buf.write(u"\t\3\t\3\t\3\t\3\t\5\t\u00b1\n\t\3\t\3\t\3\t\3\t\3\t")
-        buf.write(u"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t")
-        buf.write(u"\7\t\u00c5\n\t\f\t\16\t\u00c8\13\t\5\t\u00ca\n\t\3\t")
-        buf.write(u"\7\t\u00cd\n\t\f\t\16\t\u00d0\13\t\3\t\2\3\20\n\2\4\6")
-        buf.write(u"\b\n\f\16\20\2\3\3\2\32\36\2\u00e7\2\22\3\2\2\2\4\31")
-        buf.write(u"\3\2\2\2\6+\3\2\2\2\b@\3\2\2\2\nD\3\2\2\2\fn\3\2\2\2")
-        buf.write(u"\16\u0099\3\2\2\2\20\u00b0\3\2\2\2\22\26\5\4\3\2\23\25")
-        buf.write(u"\5\6\4\2\24\23\3\2\2\2\25\30\3\2\2\2\26\24\3\2\2\2\26")
-        buf.write(u"\27\3\2\2\2\27\3\3\2\2\2\30\26\3\2\2\2\31\32\7\3\2\2")
-        buf.write(u"\32\33\7\'\2\2\33\34\7\4\2\2\34\35\7\5\2\2\35\36\7\6")
-        buf.write(u"\2\2\36\37\7\7\2\2\37 \7\b\2\2 !\7\t\2\2!\"\7\n\2\2\"")
-        buf.write(u"#\7\13\2\2#$\7\f\2\2$%\7\'\2\2%&\7\r\2\2&\'\7\4\2\2\'")
-        buf.write(u"(\5\16\b\2()\7\16\2\2)*\7\16\2\2*\5\3\2\2\2+,\7\3\2\2")
-        buf.write(u",/\7\'\2\2-.\7\17\2\2.\60\7\'\2\2/-\3\2\2\2/\60\3\2\2")
-        buf.write(u"\2\60\61\3\2\2\2\61\65\7\4\2\2\62\64\5\b\5\2\63\62\3")
-        buf.write(u"\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\66;")
-        buf.write(u"\3\2\2\2\67\65\3\2\2\28:\5\n\6\298\3\2\2\2:=\3\2\2\2")
-        buf.write(u";9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\7\16\2\2?")
-        buf.write(u"\7\3\2\2\2@A\5\f\7\2AB\7\'\2\2BC\7\20\2\2C\t\3\2\2\2")
-        buf.write(u"DE\7\5\2\2EF\5\f\7\2FG\7\'\2\2GS\7\t\2\2HI\5\f\7\2IP")
-        buf.write(u"\7\'\2\2JK\7\21\2\2KL\5\f\7\2LM\7\'\2\2MO\3\2\2\2NJ\3")
-        buf.write(u"\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2QT\3\2\2\2RP\3\2")
-        buf.write(u"\2\2SH\3\2\2\2ST\3\2\2\2TU\3\2\2\2UV\7\r\2\2VZ\7\4\2")
-        buf.write(u"\2WY\5\b\5\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2\2\2Z[\3\2\2\2")
-        buf.write(u"[`\3\2\2\2\\Z\3\2\2\2]_\5\16\b\2^]\3\2\2\2_b\3\2\2\2")
-        buf.write(u"`^\3\2\2\2`a\3\2\2\2ac\3\2\2\2b`\3\2\2\2cd\7\22\2\2d")
-        buf.write(u"e\5\20\t\2ef\7\20\2\2fg\7\16\2\2g\13\3\2\2\2hi\7\23\2")
-        buf.write(u"\2ij\7\13\2\2jo\7\f\2\2ko\7\24\2\2lo\7\23\2\2mo\7\'\2")
-        buf.write(u"\2nh\3\2\2\2nk\3\2\2\2nl\3\2\2\2nm\3\2\2\2o\r\3\2\2\2")
-        buf.write(u"pt\7\4\2\2qs\5\16\b\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2t")
-        buf.write(u"u\3\2\2\2uw\3\2\2\2vt\3\2\2\2w\u009a\7\16\2\2xy\7\25")
-        buf.write(u"\2\2yz\7\t\2\2z{\5\20\t\2{|\7\r\2\2|}\5\16\b\2}~\7\26")
-        buf.write(u"\2\2~\177\5\16\b\2\177\u009a\3\2\2\2\u0080\u0081\7\27")
-        buf.write(u"\2\2\u0081\u0082\7\t\2\2\u0082\u0083\5\20\t\2\u0083\u0084")
-        buf.write(u"\7\r\2\2\u0084\u0085\5\16\b\2\u0085\u009a\3\2\2\2\u0086")
-        buf.write(u"\u0087\7\30\2\2\u0087\u0088\7\t\2\2\u0088\u0089\5\20")
-        buf.write(u"\t\2\u0089\u008a\7\r\2\2\u008a\u008b\7\20\2\2\u008b\u009a")
-        buf.write(u"\3\2\2\2\u008c\u008d\7\'\2\2\u008d\u008e\7\31\2\2\u008e")
-        buf.write(u"\u008f\5\20\t\2\u008f\u0090\7\20\2\2\u0090\u009a\3\2")
-        buf.write(u"\2\2\u0091\u0092\7\'\2\2\u0092\u0093\7\13\2\2\u0093\u0094")
-        buf.write(u"\5\20\t\2\u0094\u0095\7\f\2\2\u0095\u0096\7\31\2\2\u0096")
-        buf.write(u"\u0097\5\20\t\2\u0097\u0098\7\20\2\2\u0098\u009a\3\2")
-        buf.write(u"\2\2\u0099p\3\2\2\2\u0099x\3\2\2\2\u0099\u0080\3\2\2")
-        buf.write(u"\2\u0099\u0086\3\2\2\2\u0099\u008c\3\2\2\2\u0099\u0091")
-        buf.write(u"\3\2\2\2\u009a\17\3\2\2\2\u009b\u009c\b\t\1\2\u009c\u00b1")
-        buf.write(u"\7(\2\2\u009d\u00b1\7)\2\2\u009e\u00b1\7\'\2\2\u009f")
-        buf.write(u"\u00b1\7!\2\2\u00a0\u00a1\7\"\2\2\u00a1\u00a2\7\23\2")
-        buf.write(u"\2\u00a2\u00a3\7\13\2\2\u00a3\u00a4\5\20\t\2\u00a4\u00a5")
-        buf.write(u"\7\f\2\2\u00a5\u00b1\3\2\2\2\u00a6\u00a7\7\"\2\2\u00a7")
-        buf.write(u"\u00a8\7\'\2\2\u00a8\u00a9\7\t\2\2\u00a9\u00b1\7\r\2")
-        buf.write(u"\2\u00aa\u00ab\7#\2\2\u00ab\u00b1\5\20\t\4\u00ac\u00ad")
-        buf.write(u"\7\t\2\2\u00ad\u00ae\5\20\t\2\u00ae\u00af\7\r\2\2\u00af")
-        buf.write(u"\u00b1\3\2\2\2\u00b0\u009b\3\2\2\2\u00b0\u009d\3\2\2")
-        buf.write(u"\2\u00b0\u009e\3\2\2\2\u00b0\u009f\3\2\2\2\u00b0\u00a0")
-        buf.write(u"\3\2\2\2\u00b0\u00a6\3\2\2\2\u00b0\u00aa\3\2\2\2\u00b0")
-        buf.write(u"\u00ac\3\2\2\2\u00b1\u00ce\3\2\2\2\u00b2\u00b3\f\16\2")
-        buf.write(u"\2\u00b3\u00b4\t\2\2\2\u00b4\u00cd\5\20\t\17\u00b5\u00b6")
-        buf.write(u"\f\r\2\2\u00b6\u00b7\7\13\2\2\u00b7\u00b8\5\20\t\2\u00b8")
-        buf.write(u"\u00b9\7\f\2\2\u00b9\u00cd\3\2\2\2\u00ba\u00bb\f\f\2")
-        buf.write(u"\2\u00bb\u00bc\7\37\2\2\u00bc\u00cd\7 \2\2\u00bd\u00be")
-        buf.write(u"\f\13\2\2\u00be\u00bf\7\37\2\2\u00bf\u00c0\7\'\2\2\u00c0")
-        buf.write(u"\u00c9\7\t\2\2\u00c1\u00c6\5\20\t\2\u00c2\u00c3\7\21")
-        buf.write(u"\2\2\u00c3\u00c5\5\20\t\2\u00c4\u00c2\3\2\2\2\u00c5\u00c8")
-        buf.write(u"\3\2\2\2\u00c6\u00c4\3\2\2\2\u00c6\u00c7\3\2\2\2\u00c7")
-        buf.write(u"\u00ca\3\2\2\2\u00c8\u00c6\3\2\2\2\u00c9\u00c1\3\2\2")
-        buf.write(u"\2\u00c9\u00ca\3\2\2\2\u00ca\u00cb\3\2\2\2\u00cb\u00cd")
-        buf.write(u"\7\r\2\2\u00cc\u00b2\3\2\2\2\u00cc\u00b5\3\2\2\2\u00cc")
-        buf.write(u"\u00ba\3\2\2\2\u00cc\u00bd\3\2\2\2\u00cd\u00d0\3\2\2")
-        buf.write(u"\2\u00ce\u00cc\3\2\2\2\u00ce\u00cf\3\2\2\2\u00cf\21\3")
-        buf.write(u"\2\2\2\u00d0\u00ce\3\2\2\2\22\26/\65;PSZ`nt\u0099\u00b0")
-        buf.write(u"\u00c6\u00c9\u00cc\u00ce")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3)")
+        buf.write("\u00d2\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\4\b\t\b\4\t\t\t\3\2\3\2\7\2\25\n\2\f\2\16\2\30\13\2\3")
+        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
+        buf.write("\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4\60\n\4\3\4\3\4\7")
+        buf.write("\4\64\n\4\f\4\16\4\67\13\4\3\4\7\4:\n\4\f\4\16\4=\13\4")
+        buf.write("\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3")
+        buf.write("\6\3\6\3\6\7\6O\n\6\f\6\16\6R\13\6\5\6T\n\6\3\6\3\6\3")
+        buf.write("\6\7\6Y\n\6\f\6\16\6\\\13\6\3\6\7\6_\n\6\f\6\16\6b\13")
+        buf.write("\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\5\7o\n")
+        buf.write("\7\3\b\3\b\7\bs\n\b\f\b\16\bv\13\b\3\b\3\b\3\b\3\b\3\b")
+        buf.write("\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3")
+        buf.write("\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b")
+        buf.write("\3\b\3\b\5\b\u009a\n\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t")
+        buf.write("\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5")
+        buf.write("\t\u00b1\n\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3")
+        buf.write("\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\7\t\u00c5\n\t\f\t\16\t")
+        buf.write("\u00c8\13\t\5\t\u00ca\n\t\3\t\7\t\u00cd\n\t\f\t\16\t\u00d0")
+        buf.write("\13\t\3\t\2\3\20\n\2\4\6\b\n\f\16\20\2\3\3\2\32\36\2\u00e7")
+        buf.write("\2\22\3\2\2\2\4\31\3\2\2\2\6+\3\2\2\2\b@\3\2\2\2\nD\3")
+        buf.write("\2\2\2\fn\3\2\2\2\16\u0099\3\2\2\2\20\u00b0\3\2\2\2\22")
+        buf.write("\26\5\4\3\2\23\25\5\6\4\2\24\23\3\2\2\2\25\30\3\2\2\2")
+        buf.write("\26\24\3\2\2\2\26\27\3\2\2\2\27\3\3\2\2\2\30\26\3\2\2")
+        buf.write("\2\31\32\7\3\2\2\32\33\7\'\2\2\33\34\7\4\2\2\34\35\7\5")
+        buf.write("\2\2\35\36\7\6\2\2\36\37\7\7\2\2\37 \7\b\2\2 !\7\t\2\2")
+        buf.write("!\"\7\n\2\2\"#\7\13\2\2#$\7\f\2\2$%\7\'\2\2%&\7\r\2\2")
+        buf.write("&\'\7\4\2\2\'(\5\16\b\2()\7\16\2\2)*\7\16\2\2*\5\3\2\2")
+        buf.write("\2+,\7\3\2\2,/\7\'\2\2-.\7\17\2\2.\60\7\'\2\2/-\3\2\2")
+        buf.write("\2/\60\3\2\2\2\60\61\3\2\2\2\61\65\7\4\2\2\62\64\5\b\5")
+        buf.write("\2\63\62\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65\66\3\2")
+        buf.write("\2\2\66;\3\2\2\2\67\65\3\2\2\28:\5\n\6\298\3\2\2\2:=\3")
+        buf.write("\2\2\2;9\3\2\2\2;<\3\2\2\2<>\3\2\2\2=;\3\2\2\2>?\7\16")
+        buf.write("\2\2?\7\3\2\2\2@A\5\f\7\2AB\7\'\2\2BC\7\20\2\2C\t\3\2")
+        buf.write("\2\2DE\7\5\2\2EF\5\f\7\2FG\7\'\2\2GS\7\t\2\2HI\5\f\7\2")
+        buf.write("IP\7\'\2\2JK\7\21\2\2KL\5\f\7\2LM\7\'\2\2MO\3\2\2\2NJ")
+        buf.write("\3\2\2\2OR\3\2\2\2PN\3\2\2\2PQ\3\2\2\2QT\3\2\2\2RP\3\2")
+        buf.write("\2\2SH\3\2\2\2ST\3\2\2\2TU\3\2\2\2UV\7\r\2\2VZ\7\4\2\2")
+        buf.write("WY\5\b\5\2XW\3\2\2\2Y\\\3\2\2\2ZX\3\2\2\2Z[\3\2\2\2[`")
+        buf.write("\3\2\2\2\\Z\3\2\2\2]_\5\16\b\2^]\3\2\2\2_b\3\2\2\2`^\3")
+        buf.write("\2\2\2`a\3\2\2\2ac\3\2\2\2b`\3\2\2\2cd\7\22\2\2de\5\20")
+        buf.write("\t\2ef\7\20\2\2fg\7\16\2\2g\13\3\2\2\2hi\7\23\2\2ij\7")
+        buf.write("\13\2\2jo\7\f\2\2ko\7\24\2\2lo\7\23\2\2mo\7\'\2\2nh\3")
+        buf.write("\2\2\2nk\3\2\2\2nl\3\2\2\2nm\3\2\2\2o\r\3\2\2\2pt\7\4")
+        buf.write("\2\2qs\5\16\b\2rq\3\2\2\2sv\3\2\2\2tr\3\2\2\2tu\3\2\2")
+        buf.write("\2uw\3\2\2\2vt\3\2\2\2w\u009a\7\16\2\2xy\7\25\2\2yz\7")
+        buf.write("\t\2\2z{\5\20\t\2{|\7\r\2\2|}\5\16\b\2}~\7\26\2\2~\177")
+        buf.write("\5\16\b\2\177\u009a\3\2\2\2\u0080\u0081\7\27\2\2\u0081")
+        buf.write("\u0082\7\t\2\2\u0082\u0083\5\20\t\2\u0083\u0084\7\r\2")
+        buf.write("\2\u0084\u0085\5\16\b\2\u0085\u009a\3\2\2\2\u0086\u0087")
+        buf.write("\7\30\2\2\u0087\u0088\7\t\2\2\u0088\u0089\5\20\t\2\u0089")
+        buf.write("\u008a\7\r\2\2\u008a\u008b\7\20\2\2\u008b\u009a\3\2\2")
+        buf.write("\2\u008c\u008d\7\'\2\2\u008d\u008e\7\31\2\2\u008e\u008f")
+        buf.write("\5\20\t\2\u008f\u0090\7\20\2\2\u0090\u009a\3\2\2\2\u0091")
+        buf.write("\u0092\7\'\2\2\u0092\u0093\7\13\2\2\u0093\u0094\5\20\t")
+        buf.write("\2\u0094\u0095\7\f\2\2\u0095\u0096\7\31\2\2\u0096\u0097")
+        buf.write("\5\20\t\2\u0097\u0098\7\20\2\2\u0098\u009a\3\2\2\2\u0099")
+        buf.write("p\3\2\2\2\u0099x\3\2\2\2\u0099\u0080\3\2\2\2\u0099\u0086")
+        buf.write("\3\2\2\2\u0099\u008c\3\2\2\2\u0099\u0091\3\2\2\2\u009a")
+        buf.write("\17\3\2\2\2\u009b\u009c\b\t\1\2\u009c\u00b1\7(\2\2\u009d")
+        buf.write("\u00b1\7)\2\2\u009e\u00b1\7\'\2\2\u009f\u00b1\7!\2\2\u00a0")
+        buf.write("\u00a1\7\"\2\2\u00a1\u00a2\7\23\2\2\u00a2\u00a3\7\13\2")
+        buf.write("\2\u00a3\u00a4\5\20\t\2\u00a4\u00a5\7\f\2\2\u00a5\u00b1")
+        buf.write("\3\2\2\2\u00a6\u00a7\7\"\2\2\u00a7\u00a8\7\'\2\2\u00a8")
+        buf.write("\u00a9\7\t\2\2\u00a9\u00b1\7\r\2\2\u00aa\u00ab\7#\2\2")
+        buf.write("\u00ab\u00b1\5\20\t\4\u00ac\u00ad\7\t\2\2\u00ad\u00ae")
+        buf.write("\5\20\t\2\u00ae\u00af\7\r\2\2\u00af\u00b1\3\2\2\2\u00b0")
+        buf.write("\u009b\3\2\2\2\u00b0\u009d\3\2\2\2\u00b0\u009e\3\2\2\2")
+        buf.write("\u00b0\u009f\3\2\2\2\u00b0\u00a0\3\2\2\2\u00b0\u00a6\3")
+        buf.write("\2\2\2\u00b0\u00aa\3\2\2\2\u00b0\u00ac\3\2\2\2\u00b1\u00ce")
+        buf.write("\3\2\2\2\u00b2\u00b3\f\16\2\2\u00b3\u00b4\t\2\2\2\u00b4")
+        buf.write("\u00cd\5\20\t\17\u00b5\u00b6\f\r\2\2\u00b6\u00b7\7\13")
+        buf.write("\2\2\u00b7\u00b8\5\20\t\2\u00b8\u00b9\7\f\2\2\u00b9\u00cd")
+        buf.write("\3\2\2\2\u00ba\u00bb\f\f\2\2\u00bb\u00bc\7\37\2\2\u00bc")
+        buf.write("\u00cd\7 \2\2\u00bd\u00be\f\13\2\2\u00be\u00bf\7\37\2")
+        buf.write("\2\u00bf\u00c0\7\'\2\2\u00c0\u00c9\7\t\2\2\u00c1\u00c6")
+        buf.write("\5\20\t\2\u00c2\u00c3\7\21\2\2\u00c3\u00c5\5\20\t\2\u00c4")
+        buf.write("\u00c2\3\2\2\2\u00c5\u00c8\3\2\2\2\u00c6\u00c4\3\2\2\2")
+        buf.write("\u00c6\u00c7\3\2\2\2\u00c7\u00ca\3\2\2\2\u00c8\u00c6\3")
+        buf.write("\2\2\2\u00c9\u00c1\3\2\2\2\u00c9\u00ca\3\2\2\2\u00ca\u00cb")
+        buf.write("\3\2\2\2\u00cb\u00cd\7\r\2\2\u00cc\u00b2\3\2\2\2\u00cc")
+        buf.write("\u00b5\3\2\2\2\u00cc\u00ba\3\2\2\2\u00cc\u00bd\3\2\2\2")
+        buf.write("\u00cd\u00d0\3\2\2\2\u00ce\u00cc\3\2\2\2\u00ce\u00cf\3")
+        buf.write("\2\2\2\u00cf\21\3\2\2\2\u00d0\u00ce\3\2\2\2\22\26/\65")
+        buf.write(";PSZ`nt\u0099\u00b0\u00c6\u00c9\u00cc\u00ce")
         return buf.getvalue()
 
 
@@ -107,24 +105,24 @@ class miniJavaExprParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ u"<INVALID>", u"'class'", u"'{'", u"'public'", u"'static'", 
-                     u"'void'", u"'main'", u"'('", u"'String'", u"'['", 
-                     u"']'", u"')'", u"'}'", u"'extends'", u"';'", u"','", 
-                     u"'return'", u"'int'", u"'boolean'", u"'if'", u"'else'", 
-                     u"'while'", u"'System.out.println'", u"'='", u"'&&'", 
-                     u"'<'", u"'+'", u"'-'", u"'*'", u"'.'", u"'length'", 
-                     u"'this'", u"'new'", u"'!'" ]
+    literalNames = [ "<INVALID>", "'class'", "'{'", "'public'", "'static'", 
+                     "'void'", "'main'", "'('", "'String'", "'['", "']'", 
+                     "')'", "'}'", "'extends'", "';'", "','", "'return'", 
+                     "'int'", "'boolean'", "'if'", "'else'", "'while'", 
+                     "'System.out.println'", "'='", "'&&'", "'<'", "'+'", 
+                     "'-'", "'*'", "'.'", "'length'", "'this'", "'new'", 
+                     "'!'" ]
 
-    symbolicNames = [ u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"<INVALID>", u"<INVALID>", 
-                      u"<INVALID>", u"<INVALID>", u"WS", u"MULTILINE_COMMENT", 
-                      u"LINE_COMMENT", u"IDENTIFIER", u"INT", u"BOOLEAN" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "WS", "MULTILINE_COMMENT", 
+                      "LINE_COMMENT", "IDENTIFIER", "INT", "BOOLEAN" ]
 
     RULE_goal = 0
     RULE_mainclass = 1
@@ -135,8 +133,8 @@ class miniJavaExprParser ( Parser ):
     RULE_statement = 6
     RULE_expression = 7
 
-    ruleNames =  [ u"goal", u"mainclass", u"classdeclaration", u"vardeclaration", 
-                   u"methoddeclaration", u"mjtype", u"statement", u"expression" ]
+    ruleNames =  [ "goal", "mainclass", "classdeclaration", "vardeclaration", 
+                   "methoddeclaration", "mjtype", "statement", "expression" ]
 
     EOF = Token.EOF
     T__0=1
@@ -179,8 +177,8 @@ class miniJavaExprParser ( Parser ):
     INT=38
     BOOLEAN=39
 
-    def __init__(self, input, output=sys.stdout):
-        super(miniJavaExprParser, self).__init__(input, output=output)
+    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+        super().__init__(input, output)
         self.checkVersion("4.7.2")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
@@ -190,15 +188,15 @@ class miniJavaExprParser ( Parser ):
 
     class GoalContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.GoalContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def mainclass(self):
             return self.getTypedRuleContext(miniJavaExprParser.MainclassContext,0)
 
 
-        def classdeclaration(self, i=None):
+        def classdeclaration(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.ClassdeclarationContext)
             else:
@@ -208,16 +206,16 @@ class miniJavaExprParser ( Parser ):
         def getRuleIndex(self):
             return miniJavaExprParser.RULE_goal
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterGoal"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterGoal" ):
                 listener.enterGoal(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitGoal"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitGoal" ):
                 listener.exitGoal(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitGoal"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitGoal" ):
                 return visitor.visitGoal(self)
             else:
                 return visitor.visitChildren(self)
@@ -255,11 +253,11 @@ class miniJavaExprParser ( Parser ):
 
     class MainclassContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.MainclassContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
-        def IDENTIFIER(self, i=None):
+        def IDENTIFIER(self, i:int=None):
             if i is None:
                 return self.getTokens(miniJavaExprParser.IDENTIFIER)
             else:
@@ -272,16 +270,16 @@ class miniJavaExprParser ( Parser ):
         def getRuleIndex(self):
             return miniJavaExprParser.RULE_mainclass
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterMainclass"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMainclass" ):
                 listener.enterMainclass(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitMainclass"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMainclass" ):
                 listener.exitMainclass(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitMainclass"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMainclass" ):
                 return visitor.visitMainclass(self)
             else:
                 return visitor.visitChildren(self)
@@ -340,24 +338,24 @@ class miniJavaExprParser ( Parser ):
 
     class ClassdeclarationContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.ClassdeclarationContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
-        def IDENTIFIER(self, i=None):
+        def IDENTIFIER(self, i:int=None):
             if i is None:
                 return self.getTokens(miniJavaExprParser.IDENTIFIER)
             else:
                 return self.getToken(miniJavaExprParser.IDENTIFIER, i)
 
-        def vardeclaration(self, i=None):
+        def vardeclaration(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.VardeclarationContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.VardeclarationContext,i)
 
 
-        def methoddeclaration(self, i=None):
+        def methoddeclaration(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.MethoddeclarationContext)
             else:
@@ -367,16 +365,16 @@ class miniJavaExprParser ( Parser ):
         def getRuleIndex(self):
             return miniJavaExprParser.RULE_classdeclaration
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterClassdeclaration"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterClassdeclaration" ):
                 listener.enterClassdeclaration(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitClassdeclaration"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitClassdeclaration" ):
                 listener.exitClassdeclaration(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitClassdeclaration"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassdeclaration" ):
                 return visitor.visitClassdeclaration(self)
             else:
                 return visitor.visitChildren(self)
@@ -440,8 +438,8 @@ class miniJavaExprParser ( Parser ):
 
     class VardeclarationContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.VardeclarationContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
         def mjtype(self):
@@ -454,16 +452,16 @@ class miniJavaExprParser ( Parser ):
         def getRuleIndex(self):
             return miniJavaExprParser.RULE_vardeclaration
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterVardeclaration"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterVardeclaration" ):
                 listener.enterVardeclaration(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitVardeclaration"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitVardeclaration" ):
                 listener.exitVardeclaration(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitVardeclaration"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitVardeclaration" ):
                 return visitor.visitVardeclaration(self)
             else:
                 return visitor.visitChildren(self)
@@ -494,18 +492,18 @@ class miniJavaExprParser ( Parser ):
 
     class MethoddeclarationContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.MethoddeclarationContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
-        def mjtype(self, i=None):
+        def mjtype(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.MjtypeContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.MjtypeContext,i)
 
 
-        def IDENTIFIER(self, i=None):
+        def IDENTIFIER(self, i:int=None):
             if i is None:
                 return self.getTokens(miniJavaExprParser.IDENTIFIER)
             else:
@@ -515,14 +513,14 @@ class miniJavaExprParser ( Parser ):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def vardeclaration(self, i=None):
+        def vardeclaration(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.VardeclarationContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.VardeclarationContext,i)
 
 
-        def statement(self, i=None):
+        def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.StatementContext)
             else:
@@ -532,16 +530,16 @@ class miniJavaExprParser ( Parser ):
         def getRuleIndex(self):
             return miniJavaExprParser.RULE_methoddeclaration
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterMethoddeclaration"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMethoddeclaration" ):
                 listener.enterMethoddeclaration(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitMethoddeclaration"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMethoddeclaration" ):
                 listener.exitMethoddeclaration(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitMethoddeclaration"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMethoddeclaration" ):
                 return visitor.visitMethoddeclaration(self)
             else:
                 return visitor.visitChildren(self)
@@ -632,8 +630,8 @@ class miniJavaExprParser ( Parser ):
 
     class MjtypeContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.MjtypeContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
 
@@ -641,30 +639,30 @@ class miniJavaExprParser ( Parser ):
             return miniJavaExprParser.RULE_mjtype
 
      
-        def copyFrom(self, ctx):
-            super(miniJavaExprParser.MjtypeContext, self).copyFrom(ctx)
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
 
 
 
     class IdentifiermjtypeContext(MjtypeContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.MjtypeContext)
-            super(miniJavaExprParser.IdentifiermjtypeContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.MjtypeContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def IDENTIFIER(self):
             return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterIdentifiermjtype"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIdentifiermjtype" ):
                 listener.enterIdentifiermjtype(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitIdentifiermjtype"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIdentifiermjtype" ):
                 listener.exitIdentifiermjtype(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitIdentifiermjtype"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifiermjtype" ):
                 return visitor.visitIdentifiermjtype(self)
             else:
                 return visitor.visitChildren(self)
@@ -672,21 +670,21 @@ class miniJavaExprParser ( Parser ):
 
     class IntmjtypeContext(MjtypeContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.MjtypeContext)
-            super(miniJavaExprParser.IntmjtypeContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.MjtypeContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterIntmjtype"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIntmjtype" ):
                 listener.enterIntmjtype(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitIntmjtype"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIntmjtype" ):
                 listener.exitIntmjtype(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitIntmjtype"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIntmjtype" ):
                 return visitor.visitIntmjtype(self)
             else:
                 return visitor.visitChildren(self)
@@ -694,21 +692,21 @@ class miniJavaExprParser ( Parser ):
 
     class ArraymjtypeContext(MjtypeContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.MjtypeContext)
-            super(miniJavaExprParser.ArraymjtypeContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.MjtypeContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterArraymjtype"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArraymjtype" ):
                 listener.enterArraymjtype(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitArraymjtype"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArraymjtype" ):
                 listener.exitArraymjtype(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitArraymjtype"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArraymjtype" ):
                 return visitor.visitArraymjtype(self)
             else:
                 return visitor.visitChildren(self)
@@ -716,21 +714,21 @@ class miniJavaExprParser ( Parser ):
 
     class BooleanmjtypeContext(MjtypeContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.MjtypeContext)
-            super(miniJavaExprParser.BooleanmjtypeContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.MjtypeContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterBooleanmjtype"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBooleanmjtype" ):
                 listener.enterBooleanmjtype(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitBooleanmjtype"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBooleanmjtype" ):
                 listener.exitBooleanmjtype(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitBooleanmjtype"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBooleanmjtype" ):
                 return visitor.visitBooleanmjtype(self)
             else:
                 return visitor.visitChildren(self)
@@ -789,8 +787,8 @@ class miniJavaExprParser ( Parser ):
 
     class StatementContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.StatementContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
 
@@ -798,15 +796,15 @@ class miniJavaExprParser ( Parser ):
             return miniJavaExprParser.RULE_statement
 
      
-        def copyFrom(self, ctx):
-            super(miniJavaExprParser.StatementContext, self).copyFrom(ctx)
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
 
 
 
     class WhileStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
-            super(miniJavaExprParser.WhileStatementContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
@@ -816,16 +814,16 @@ class miniJavaExprParser ( Parser ):
             return self.getTypedRuleContext(miniJavaExprParser.StatementContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterWhileStatement"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterWhileStatement" ):
                 listener.enterWhileStatement(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitWhileStatement"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitWhileStatement" ):
                 listener.exitWhileStatement(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitWhileStatement"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitWhileStatement" ):
                 return visitor.visitWhileStatement(self)
             else:
                 return visitor.visitChildren(self)
@@ -833,24 +831,24 @@ class miniJavaExprParser ( Parser ):
 
     class PrintStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
-            super(miniJavaExprParser.PrintStatementContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterPrintStatement"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintStatement" ):
                 listener.enterPrintStatement(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitPrintStatement"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintStatement" ):
                 listener.exitPrintStatement(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitPrintStatement"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrintStatement" ):
                 return visitor.visitPrintStatement(self)
             else:
                 return visitor.visitChildren(self)
@@ -858,27 +856,27 @@ class miniJavaExprParser ( Parser ):
 
     class BlockStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
-            super(miniJavaExprParser.BlockStatementContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
-        def statement(self, i=None):
+        def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.StatementContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.StatementContext,i)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterBlockStatement"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBlockStatement" ):
                 listener.enterBlockStatement(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitBlockStatement"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBlockStatement" ):
                 listener.exitBlockStatement(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitBlockStatement"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlockStatement" ):
                 return visitor.visitBlockStatement(self)
             else:
                 return visitor.visitChildren(self)
@@ -886,13 +884,13 @@ class miniJavaExprParser ( Parser ):
 
     class ArrayAssignStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
-            super(miniJavaExprParser.AssignStatementContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def IDENTIFIER(self):
             return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
-        def expression(self, i=None):
+        def expression(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.ExpressionContext)
             else:
@@ -930,12 +928,12 @@ class miniJavaExprParser ( Parser ):
             if hasattr( listener, "enterAssignStatement" ):
                 listener.enterAssignStatement(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitAssignStatement"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAssignStatement" ):
                 listener.exitAssignStatement(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitAssignStatement"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignStatement" ):
                 return visitor.visitAssignStatement(self)
             else:
                 return visitor.visitChildren(self)
@@ -943,30 +941,30 @@ class miniJavaExprParser ( Parser ):
 
     class IfStatementContext(StatementContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
-            super(miniJavaExprParser.IfStatementContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
-        def statement(self, i=None):
+        def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.StatementContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.StatementContext,i)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterIfStatement"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfStatement" ):
                 listener.enterIfStatement(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitIfStatement"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfStatement" ):
                 listener.exitIfStatement(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitIfStatement"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatement" ):
                 return visitor.visitIfStatement(self)
             else:
                 return visitor.visitChildren(self)
@@ -1094,8 +1092,8 @@ class miniJavaExprParser ( Parser ):
 
     class ExpressionContext(ParserRuleContext):
 
-        def __init__(self, parser, parent=None, invokingState=-1):
-            super(miniJavaExprParser.ExpressionContext, self).__init__(parent, invokingState)
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
             self.parser = parser
 
 
@@ -1103,29 +1101,29 @@ class miniJavaExprParser ( Parser ):
             return miniJavaExprParser.RULE_expression
 
      
-        def copyFrom(self, ctx):
-            super(miniJavaExprParser.ExpressionContext, self).copyFrom(ctx)
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
 
 
     class ConstIntExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ConstIntExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def INT(self):
             return self.getToken(miniJavaExprParser.INT, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterConstIntExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterConstIntExpr" ):
                 listener.enterConstIntExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitConstIntExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitConstIntExpr" ):
                 listener.exitConstIntExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitConstIntExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstIntExpr" ):
                 return visitor.visitConstIntExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1133,23 +1131,23 @@ class miniJavaExprParser ( Parser ):
 
     class CreateClassExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.CreateClassExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def IDENTIFIER(self):
             return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterCreateClassExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCreateClassExpr" ):
                 listener.enterCreateClassExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitCreateClassExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCreateClassExpr" ):
                 listener.exitCreateClassExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitCreateClassExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreateClassExpr" ):
                 return visitor.visitCreateClassExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1157,24 +1155,24 @@ class miniJavaExprParser ( Parser ):
 
     class ArraylenExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ArraylenExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterArraylenExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArraylenExpr" ):
                 listener.enterArraylenExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitArraylenExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArraylenExpr" ):
                 listener.exitArraylenExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitArraylenExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArraylenExpr" ):
                 return visitor.visitArraylenExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1182,21 +1180,21 @@ class miniJavaExprParser ( Parser ):
 
     class ThisExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ThisExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterThisExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterThisExpr" ):
                 listener.enterThisExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitThisExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitThisExpr" ):
                 listener.exitThisExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitThisExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitThisExpr" ):
                 return visitor.visitThisExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1204,24 +1202,24 @@ class miniJavaExprParser ( Parser ):
 
     class CreateArrayExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.CreateArrayExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterCreateArrayExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCreateArrayExpr" ):
                 listener.enterCreateArrayExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitCreateArrayExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCreateArrayExpr" ):
                 listener.exitCreateArrayExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitCreateArrayExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCreateArrayExpr" ):
                 return visitor.visitCreateArrayExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1229,27 +1227,27 @@ class miniJavaExprParser ( Parser ):
 
     class ArrayValExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ArrayValExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expression(self, i=None):
+        def expression(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.ExpressionContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,i)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterArrayValExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArrayValExpr" ):
                 listener.enterArrayValExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitArrayValExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArrayValExpr" ):
                 listener.exitArrayValExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitArrayValExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayValExpr" ):
                 return visitor.visitArrayValExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1257,23 +1255,23 @@ class miniJavaExprParser ( Parser ):
 
     class ConstIdenExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ConstIdenExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def IDENTIFIER(self):
             return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterConstIdenExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterConstIdenExpr" ):
                 listener.enterConstIdenExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitConstIdenExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitConstIdenExpr" ):
                 listener.exitConstIdenExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitConstIdenExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstIdenExpr" ):
                 return visitor.visitConstIdenExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1286,23 +1284,23 @@ class miniJavaExprParser ( Parser ):
             self.op = None # Token
             self.copyFrom(ctx)
 
-        def expression(self, i=None):
+        def expression(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.ExpressionContext)
             else:
                 return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,i)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterOperationExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterOperationExpr" ):
                 listener.enterOperationExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitOperationExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitOperationExpr" ):
                 listener.exitOperationExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitOperationExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOperationExpr" ):
                 return visitor.visitOperationExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1310,24 +1308,24 @@ class miniJavaExprParser ( Parser ):
 
     class OppExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.OppExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterOppExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterOppExpr" ):
                 listener.enterOppExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitOppExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitOppExpr" ):
                 listener.exitOppExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitOppExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOppExpr" ):
                 return visitor.visitOppExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1335,24 +1333,24 @@ class miniJavaExprParser ( Parser ):
 
     class PrioExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.PrioExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def expression(self):
             return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterPrioExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrioExpr" ):
                 listener.enterPrioExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitPrioExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrioExpr" ):
                 listener.exitPrioExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitPrioExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrioExpr" ):
                 return visitor.visitPrioExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1360,11 +1358,11 @@ class miniJavaExprParser ( Parser ):
 
     class ClassPropExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ClassPropExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expression(self, i=None):
+        def expression(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(miniJavaExprParser.ExpressionContext)
             else:
@@ -1373,16 +1371,16 @@ class miniJavaExprParser ( Parser ):
         def IDENTIFIER(self):
             return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterClassPropExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterClassPropExpr" ):
                 listener.enterClassPropExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitClassPropExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitClassPropExpr" ):
                 listener.exitClassPropExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitClassPropExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitClassPropExpr" ):
                 return visitor.visitClassPropExpr(self)
             else:
                 return visitor.visitChildren(self)
@@ -1390,30 +1388,30 @@ class miniJavaExprParser ( Parser ):
 
     class ConstBooleanExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.ConstBooleanExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
             self.copyFrom(ctx)
 
         def BOOLEAN(self):
             return self.getToken(miniJavaExprParser.BOOLEAN, 0)
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterConstBooleanExpr"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterConstBooleanExpr" ):
                 listener.enterConstBooleanExpr(self)
 
-        def exitRule(self, listener):
-            if hasattr(listener, "exitConstBooleanExpr"):
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitConstBooleanExpr" ):
                 listener.exitConstBooleanExpr(self)
 
-        def accept(self, visitor):
-            if hasattr(visitor, "visitConstBooleanExpr"):
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitConstBooleanExpr" ):
                 return visitor.visitConstBooleanExpr(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
-    def expression(self, _p=0):
+    def expression(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
         localctx = miniJavaExprParser.ExpressionContext(self, self._ctx, _parentState)
@@ -1623,7 +1621,7 @@ class miniJavaExprParser ( Parser ):
 
 
 
-    def sempred(self, localctx, ruleIndex, predIndex):
+    def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
         self._predicates[7] = self.expression_sempred
@@ -1633,7 +1631,7 @@ class miniJavaExprParser ( Parser ):
         else:
             return pred(localctx, predIndex)
 
-    def expression_sempred(self, localctx, predIndex):
+    def expression_sempred(self, localctx:ExpressionContext, predIndex:int):
             if predIndex == 0:
                 return self.precpred(self._ctx, 12)
          

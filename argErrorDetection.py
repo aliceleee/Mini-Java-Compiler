@@ -1,6 +1,7 @@
 from antlr4 import *
 from miniJavaExprVisitor import *
 from test import *
+from semanticErrorDetection import *
 
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
@@ -21,7 +22,7 @@ class argErrorDetection(semanticErrorDetection):
         self.classname = ""
         self.methodname = ""
         self.debug = False
-        super().__init__()
+        super().__init__(symbol_table)
     
 
     def visitMainclass(self, ctx):

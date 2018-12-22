@@ -14,8 +14,9 @@ class semanticException(Exception):
         super().__init__(msg)
         self.msg = msg
 class semanticErrorDetection(miniJavaExprVisitor):
-    def __init__(self):
+    def __init__(self,symbolTable):
         super().__init__()
+        self.symbolTable = symbolTable
         # identify the action space
         self.classname = ""     # current class
         self.methodname = ""    # current method
@@ -28,7 +29,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         if identifier is a method, dict also contains the params list attr 'param_list' and return type 'rtr_type'
         """
         rtr = {}
-        rtr["type"] = testSymbolTable.get(identifier, "undefined")
+        rtr["type"] = self.symbolTable.get(identifier, "undefined")
         return rtr
     
     def _checkAttribute(self, templateClass, methodName):
@@ -89,7 +90,11 @@ class semanticErrorDetection(miniJavaExprVisitor):
             node = identifier_nodes[0]; token = node.getSymbol()
             self.methodname = token.text 
         else:
-            node = identifier_nodes; token = node.getSymbol()
+            if type(identifier_nodes) is type([]):
+                node = identifier_nodes[0]
+            else:
+                node = identifier_nodes
+            token = node.getSymbol()
             self.methodname = token.text 
         self.visitChildren(ctx)
     
