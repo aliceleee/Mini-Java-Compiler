@@ -20,49 +20,50 @@ class argErrorDetection(semanticErrorDetection):
 
     def __init__(self, symbol_table):
         self.symbol_table = symbol_table
-        self.classname = ""
-        self.methodname = ""
+        # self.classname = ""
+        # self.methodname = ""
         self.debug = False
-        super().__init__(symbol_table)
+        super().__init__()
     
 
-    """def visitMainclass(self, ctx):
-        if self.debug:
-            print("visit Mainclass")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
+    # def visitMainclass(self, ctx):
+    #     if self.debug:
+    #         print("visit Mainclass")
+    #         print("\tcurrent class: ", self.classname)
+    #         print("\tcurrent method: ", self.methodname)
 
-        node = ctx.IDENTIFIER()[0]
-        token = node.getSymbol()
-        self.classname = str(node)
-        #self.visitChildren(ctx)
+    #     node = ctx.IDENTIFIER()[0]
+    #     token = node.getSymbol()
+    #     self.classname = str(node)
     
     
-    def visitMethoddeclaration(self, ctx):
-        if self.debug:
-            print("visit Methoddeclaration")
-            print("\tcurrent class: ", self.classname)
-            print("\tcurrent method: ", self.methodname)
+    # def visitMethoddeclaration(self, ctx):
+    #     if self.debug:
+    #         print("visit Methoddeclaration")
+    #         print("\tcurrent class: ", self.classname)
+    #         print("\tcurrent method: ", self.methodname)
         
-        identifier_nodes = ctx.IDENTIFIER()
-        if type(identifier_nodes) is type([]) and len(identifier_nodes) > 1:
-            node = identifier_nodes[0]
-            self.methodname = str(node)
-        else:
-            node = identifier_nodes
-            self.methodname = str(node)
-        #self.visitChildren(ctx)"""
+    #     identifier_nodes = ctx.IDENTIFIER()
+    #     if type(identifier_nodes) is type([]) and len(identifier_nodes) > 1:
+    #         node = identifier_nodes[0]
+    #         self.methodname = str(node)
+    #     else:
+    #         node = identifier_nodes
+    #         self.methodname = str(node)
     
 
     def visitClassPropExpr(self, ctx):
+        print('class')
         if self.debug:
             print("visit ClassPropExpr")
             print("\tcurrent class: ", self.classname)
             print("\tcurrent method: ", self.methodname)
         # get method name
         method_name = str(ctx.getChild(2))
-        try: expr = ctx.expression(0)
-        except: expr = ctx.expression()
+        try:
+            expr = ctx.expression(0)
+        except:
+            expr = ctx.expression()
         class_name = self.visit(expr)['template_class']
 
         line = ctx.start.line
@@ -80,6 +81,7 @@ class argErrorDetection(semanticErrorDetection):
             arg_type_list.append(exp_type)
         
         arg_right_list = self.symbol_table[class_name][method_name]['arg_list']
+        rtr_type = self.symbol_table[class_name][method_name]['return_type']
 
         # len of arg list
         if len(arg_type_list) != len(arg_right_list):
@@ -95,4 +97,5 @@ class argErrorDetection(semanticErrorDetection):
                 else:
                     if arg_type['type'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
-                
+        
+        return {'expr_type': 'classProp', 'type': rtr_type}

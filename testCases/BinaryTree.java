@@ -10,11 +10,12 @@ class BinaryTree{
 class BT {
 
     public int Start(){
-	Tree root ;
+	Tree root;
 	boolean ntb;
-	int nti ;
+	int nti;
 
 	root = new Tree();
+
 	ntb = root.Init(16);
 	ntb = root.Print();
 	System.out.println(100000000);
