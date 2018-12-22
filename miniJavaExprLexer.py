@@ -30,9 +30,9 @@ def serializedATN():
         buf.write("\3 \3 \3 \3 \3!\3!\3!\3!\3\"\3\"\3#\6#\u00e5\n#\r#\16")
         buf.write("#\u00e6\3#\3#\3$\3$\3$\3$\7$\u00ef\n$\f$\16$\u00f2\13")
         buf.write("$\3$\3$\3$\3$\3$\3%\3%\3%\3%\7%\u00fd\n%\f%\16%\u0100")
-        buf.write("\13%\3%\3%\3%\3%\3&\3&\7&\u0108\n&\f&\16&\u010b\13&\3")
-        buf.write("\'\6\'\u010e\n\'\r\'\16\'\u010f\3(\3(\3(\3(\3(\3(\3(\3")
-        buf.write("(\3(\5(\u011b\n(\4\u00f0\u00fe\2)\3\3\5\4\7\5\t\6\13\7")
+        buf.write("\13%\3%\3%\3%\3%\3&\3&\3&\3&\3&\3&\3&\3&\3&\5&\u010f\n")
+        buf.write("&\3\'\3\'\7\'\u0113\n\'\f\'\16\'\u0116\13\'\3(\6(\u0119")
+        buf.write("\n(\r(\16(\u011a\4\u00f0\u00fe\2)\3\3\5\4\7\5\t\6\13\7")
         buf.write("\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21")
         buf.write("!\22#\23%\24\'\25)\26+\27-\30/\31\61\32\63\33\65\34\67")
         buf.write("\359\36;\37= ?!A\"C#E$G%I&K\'M(O)\3\2\6\5\2\13\f\17\17")
@@ -55,7 +55,7 @@ def serializedATN():
         buf.write("\3\2\2\2\65\u00c9\3\2\2\2\67\u00cb\3\2\2\29\u00cd\3\2")
         buf.write("\2\2;\u00cf\3\2\2\2=\u00d1\3\2\2\2?\u00d8\3\2\2\2A\u00dd")
         buf.write("\3\2\2\2C\u00e1\3\2\2\2E\u00e4\3\2\2\2G\u00ea\3\2\2\2")
-        buf.write("I\u00f8\3\2\2\2K\u0105\3\2\2\2M\u010d\3\2\2\2O\u011a\3")
+        buf.write("I\u00f8\3\2\2\2K\u010e\3\2\2\2M\u0110\3\2\2\2O\u0118\3")
         buf.write("\2\2\2QR\7e\2\2RS\7n\2\2ST\7c\2\2TU\7u\2\2UV\7u\2\2V\4")
         buf.write("\3\2\2\2WX\7}\2\2X\6\3\2\2\2YZ\7r\2\2Z[\7w\2\2[\\\7d\2")
         buf.write("\2\\]\7n\2\2]^\7k\2\2^_\7e\2\2_\b\3\2\2\2`a\7u\2\2ab\7")
@@ -111,16 +111,16 @@ def serializedATN():
         buf.write("\u00fb\3\2\2\2\u00fd\u0100\3\2\2\2\u00fe\u00ff\3\2\2\2")
         buf.write("\u00fe\u00fc\3\2\2\2\u00ff\u0101\3\2\2\2\u0100\u00fe\3")
         buf.write("\2\2\2\u0101\u0102\7\f\2\2\u0102\u0103\3\2\2\2\u0103\u0104")
-        buf.write("\b%\2\2\u0104J\3\2\2\2\u0105\u0109\t\3\2\2\u0106\u0108")
-        buf.write("\t\4\2\2\u0107\u0106\3\2\2\2\u0108\u010b\3\2\2\2\u0109")
-        buf.write("\u0107\3\2\2\2\u0109\u010a\3\2\2\2\u010aL\3\2\2\2\u010b")
-        buf.write("\u0109\3\2\2\2\u010c\u010e\t\5\2\2\u010d\u010c\3\2\2\2")
-        buf.write("\u010e\u010f\3\2\2\2\u010f\u010d\3\2\2\2\u010f\u0110\3")
-        buf.write("\2\2\2\u0110N\3\2\2\2\u0111\u0112\7v\2\2\u0112\u0113\7")
-        buf.write("t\2\2\u0113\u0114\7w\2\2\u0114\u011b\7g\2\2\u0115\u0116")
-        buf.write("\7h\2\2\u0116\u0117\7c\2\2\u0117\u0118\7n\2\2\u0118\u0119")
-        buf.write("\7u\2\2\u0119\u011b\7g\2\2\u011a\u0111\3\2\2\2\u011a\u0115")
-        buf.write("\3\2\2\2\u011bP\3\2\2\2\t\2\u00e6\u00f0\u00fe\u0109\u010f")
+        buf.write("\b%\2\2\u0104J\3\2\2\2\u0105\u0106\7v\2\2\u0106\u0107")
+        buf.write("\7t\2\2\u0107\u0108\7w\2\2\u0108\u010f\7g\2\2\u0109\u010a")
+        buf.write("\7h\2\2\u010a\u010b\7c\2\2\u010b\u010c\7n\2\2\u010c\u010d")
+        buf.write("\7u\2\2\u010d\u010f\7g\2\2\u010e\u0105\3\2\2\2\u010e\u0109")
+        buf.write("\3\2\2\2\u010fL\3\2\2\2\u0110\u0114\t\3\2\2\u0111\u0113")
+        buf.write("\t\4\2\2\u0112\u0111\3\2\2\2\u0113\u0116\3\2\2\2\u0114")
+        buf.write("\u0112\3\2\2\2\u0114\u0115\3\2\2\2\u0115N\3\2\2\2\u0116")
+        buf.write("\u0114\3\2\2\2\u0117\u0119\t\5\2\2\u0118\u0117\3\2\2\2")
+        buf.write("\u0119\u011a\3\2\2\2\u011a\u0118\3\2\2\2\u011a\u011b\3")
+        buf.write("\2\2\2\u011bP\3\2\2\2\t\2\u00e6\u00f0\u00fe\u010e\u0114")
         buf.write("\u011a\3\b\2\2")
         return buf.getvalue()
 
@@ -167,9 +167,9 @@ class miniJavaExprLexer(Lexer):
     WS = 34
     MULTILINE_COMMENT = 35
     LINE_COMMENT = 36
-    IDENTIFIER = 37
-    INT = 38
-    BOOLEAN = 39
+    BOOLEAN = 37
+    IDENTIFIER = 38
+    INT = 39
 
     channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
 
@@ -183,16 +183,16 @@ class miniJavaExprLexer(Lexer):
             "'-'", "'*'", "'.'", "'length'", "'this'", "'new'", "'!'" ]
 
     symbolicNames = [ "<INVALID>",
-            "WS", "MULTILINE_COMMENT", "LINE_COMMENT", "IDENTIFIER", "INT", 
-            "BOOLEAN" ]
+            "WS", "MULTILINE_COMMENT", "LINE_COMMENT", "BOOLEAN", "IDENTIFIER", 
+            "INT" ]
 
     ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", 
                   "T__7", "T__8", "T__9", "T__10", "T__11", "T__12", "T__13", 
                   "T__14", "T__15", "T__16", "T__17", "T__18", "T__19", 
                   "T__20", "T__21", "T__22", "T__23", "T__24", "T__25", 
                   "T__26", "T__27", "T__28", "T__29", "T__30", "T__31", 
-                  "T__32", "WS", "MULTILINE_COMMENT", "LINE_COMMENT", "IDENTIFIER", 
-                  "INT", "BOOLEAN" ]
+                  "T__32", "WS", "MULTILINE_COMMENT", "LINE_COMMENT", "BOOLEAN", 
+                  "IDENTIFIER", "INT" ]
 
     grammarFileName = "miniJavaExpr.g4"
 

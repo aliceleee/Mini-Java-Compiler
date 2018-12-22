@@ -27,11 +27,11 @@ def main(filename):
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
-    semanticErrorDetector = semanticErrorDetection(symbol_table)
-    semanticErrorDetector.visit(tree)
+    #semanticErrorDetector = semanticErrorDetection(symbol_table)
+    #semanticErrorDetector.visit(tree)
 
-    #argErrorDetector = argErrorDetection(symbol_table)
-    #argErrorDetector.visit(tree)
+    argErrorDetector = argErrorDetection(symbol_table)
+    argErrorDetector.visit(tree)
 
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ class semanticException(Exception):
     def __init__(self, msg):
         super().__init__(msg)
         self.msg = msg
+
 class semanticErrorDetection(miniJavaExprVisitor):
     def __init__(self,symbolTable):
         super().__init__()
@@ -20,7 +21,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         # identify the action space
         self.classname = ""     # current class
         self.methodname = ""    # current method
-        self.debug = False
+        self.debug = True
     def _lookupTable(self, identifier):
         """
         look up identifier in the correspoding symbol table
@@ -28,14 +29,34 @@ class semanticErrorDetection(miniJavaExprVisitor):
         if identifier is an instance of a user-defined class, dict also contains 'template_class' attr
         if identifier is a method, dict also contains the params list attr 'param_list' and return type 'rtr_type'
         """
+        current_action_table = {}; class_global_table = {}
+        if self.methodname == "":
+            current_action_table = self.symbolTable.get(self.classname, {})
+        else:
+            current_action_table = self.symbolTable.get(self.classname, {}).get(self.methodname,{})
+        class_global_table = self.symbolTable.get(self.classname,{})
+        
         rtr = {}
-        rtr["type"] = self.symbolTable.get(identifier, "undefined")
+        if identifier in current_action_table:
+            rtr = current_action_table[identifier]
+        elif identifier in class_global_table:
+            rtr = class_global_table[identifier]
+        elif identifier in self.symbolTable:
+            rtr["type"] = "class"
+            rtr["template_class"] = identifier
+        else:
+            rtr["type"] = "undefined"
+        
         return rtr
     
     def _checkAttribute(self, templateClass, methodName):
         #print("caller class: ", templateClass)
         #print("callee method: ", methodName)
-        return True
+        class_attributes = self.symbolTable.get(templateClass,{})
+        has_flag = False
+        if methodName in class_attributes:
+            has_flag = True
+        return has_flag
 
     def _methodInfo(self, methodName):
         return {"return_type":"int","arg_list":[]}
@@ -106,13 +127,18 @@ class semanticErrorDetection(miniJavaExprVisitor):
         
         identifier_node = ctx.IDENTIFIER()
         token = identifier_node.getSymbol()
-        idtype = self._lookupTable(token.text)["type"]
+        idinfo = self._lookupTable(token.text)
+        idtype = idinfo["type"]
         line = token.line; col = token.column
         if idtype == "undefined":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
         else:
             exprtype = self.visit(ctx.expression())
-            if exprtype["type"] != idtype:
+            if idtype == "instance" and exprtype["type"] != 'class':
+                print("Error(line " + str(line) + " , position " + str(col) + "): Can't assign class " + idinfo.get("template_class") + " with type " + exprtype["type"] + ".")
+            elif idinfo.get("template_class") != exprtype.get("template_class"):
+                print("Error(line " + str(line) + " , position " + str(col) + "): Can't assign class " + idinfo.get("template_class") + " with class " + exprtype.get("template_class"))
+            elif exprtype["type"] != idtype:
                 print("Error(line " + str(line) + " , position " + str(col) + "): Incompatible type, can't assign type " + idtype + " with type " + exprtype["type"] + ".")
         self.visitChildren(ctx)
     
@@ -128,7 +154,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         line = token.line; col = token.column
         if idtype == "undefined":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
-        elif idtype != "array":
+        elif idtype != "int[]":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + idtype + " object is not iterable.")
         
         idxtype = self.visit(ctx.expression(0))
@@ -169,7 +195,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exp1 = ctx.expression(0); exp2 = ctx.expression(1)
         exp1type = self.visit(exp1)
         exp2type = self.visit(exp2)
-        if exp1type["type"] != "array":
+        if exp1type["type"] != "int[]":
             line = exp1.start.line; col = exp1.start.column
             print("Error(line " + str(line) + " , position " + str(col) + "): " + exp1type["type"] + " object is not iterable.")
         if exp2type["type"] != "int":
@@ -186,7 +212,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exp = ctx.expression()
         exptype = self.visit(exp)
         line = exp.start.line; col = exp.start.column
-        if exptype["type"] != "array":
+        if exptype["type"] != "int[]":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + exptype["type"] + " object doesn't have attribute length.")
         return {"expr_type":"arrayLen","type":"int"}
     
@@ -198,6 +224,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         
         # callee method name
         cmethodname = ctx.IDENTIFIER().getSymbol().text
+        
         # whether the caller is a class instance and whether this class has this callee method
         try: expr = ctx.expression(0)
         except: expr = ctx.expression()
@@ -207,10 +234,16 @@ class semanticErrorDetection(miniJavaExprVisitor):
             print("Error(line " + str(line) + " , position " + str(col) + "): " + exprtype["type"] + " object doesn't have attribute " + cmethodname + ".")
         elif not self._checkAttribute(exprtype["template_class"], cmethodname):
             print("Error(line " + str(line) + " , position " + str(col) + "): class " + exptype["template_class"] + " doesn't have attribute " + cmethodname + ".")
+        
         # check the paramters
-        rtrType = self._methodInfo(cmethodname) # return type of the callee method
-        ###
-        return {"expr_type":"classProp", "type":rtrType["return_type"]}
+        # temporaly change self.classname to the caller classname
+        currentClass = self.classname; currentMethod = self.methodname
+        self.classname = exprtype["template_class"]; self.methodname = ""
+        methodinfo = self._lookupTable(cmethodname)
+        rtrType = methodinfo.get("return_type","undefined")
+        self.classname = currentClass; self.methodname = currentMethod
+
+        return {"expr_type":"classProp", "type":rtrType}
     
     def visitConstIntExpr(self, ctx:miniJavaExprParser.ConstIntExprContext):
         if self.debug:
@@ -242,11 +275,8 @@ class semanticErrorDetection(miniJavaExprVisitor):
         if idtype["type"] == "undefined":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + token.text + " is used without defined.")
             rtr["type"] = "undefined"
-        elif idtype["type"] == "instance":
-            rtr["type"] = "instance"
-            rtr["template_class"] = idtype["template_class"]
-        else:
-            rtr["type"] = idtype["type"]
+        for k,v in idtype.items():
+            rtr[k] = v
         return rtr
     
     def visitThisExpr(self, ctx:miniJavaExprParser.ThisExprContext):
@@ -270,13 +300,10 @@ class semanticErrorDetection(miniJavaExprVisitor):
         rtr = {"expr_type":"createClass"}
         if idtype["type"] == "undefined":
             print("Error(line " + str(line) + " , position " + str(col) + "): " + identifier + " is used without defined.")
-            rtr["type"] = "undefined"
         elif idtype["type"] != "class":
             print("Error(line " + str(line) + " , position " + str(col) + "): Can't new type " + idtype["type"] + ".")
-            rtr["type"] = idtype["type"]
-        else:
-            rtr["type"] = "class"
-            rtr["template_class"] = identifier
+        for k,v in idtype.items():
+            rtr[k] = v
         return rtr
 
     def visitCreateArrayExpr(self, ctx:miniJavaExprParser.CreateArrayExprContext):
@@ -285,6 +312,9 @@ class semanticErrorDetection(miniJavaExprVisitor):
         line = expr.start.line; col = expr.start.column
         if exprtype["type"] != "int":
             print("Error(line " + str(line) + " , position " + str(col) + "): Type error, expect type int but got type " + exprtype["type"] + ".")
+        rtr = {}
+        rtr["type"] = "int[]"
+        return rtr
 
     def visitPrioExpr(self, ctx:miniJavaExprParser.PrintStatementContext):
         if self.debug:

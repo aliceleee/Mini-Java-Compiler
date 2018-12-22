@@ -55,9 +55,12 @@ def visit_method_node(table, ctx):
             arg_dict['arg_name'] = str(ctx.getChild(child_index + 1))
             arg_dict['arg_type'] = ctx.getChild(child_index).getText()
             table[method_name]['arg_list'].append(arg_dict)
+    # see all params as defined var
+    for d in table[method_name]["arg_list"]:
+        table[method_name][d['arg_name']] = {"type":d["arg_type"]}
         
     for child_ctx in ctx.vardeclaration():
-        visit_var_node(table, child_ctx)
+        visit_var_node(table[method_name], child_ctx)
 
 
 class symbolTable(miniJavaExprVisitor):
@@ -66,6 +69,16 @@ class symbolTable(miniJavaExprVisitor):
         super().__init__()
         self.symbol_table = symbol_table
 
+    
+    def visitMainclass(self, ctx):
+        class_name = str(ctx.getChild(1))
+        symbol_table[class_name] = {
+            'type': 'class',
+            'main': {'type': 'method',
+                    'return_type': 'void',
+                    'arg_list': [{'arg_name':'a', 'arg_type':'String[]'}]
+            }
+        }
 
     def visitClassdeclaration(self, ctx):
         class_name = str(ctx.getChild(1))
@@ -80,5 +93,5 @@ class symbolTable(miniJavaExprVisitor):
             visit_method_node(symbol_table[class_name], child_ctx)
 
         # print(symbol_table)
-        
+    
     

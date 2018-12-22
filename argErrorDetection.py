@@ -1,5 +1,6 @@
 from antlr4 import *
 from miniJavaExprVisitor import *
+from semanticErrorDetection import *
 from test import *
 from semanticErrorDetection import *
 
@@ -25,7 +26,7 @@ class argErrorDetection(semanticErrorDetection):
         super().__init__(symbol_table)
     
 
-    def visitMainclass(self, ctx):
+    """def visitMainclass(self, ctx):
         if self.debug:
             print("visit Mainclass")
             print("\tcurrent class: ", self.classname)
@@ -34,7 +35,7 @@ class argErrorDetection(semanticErrorDetection):
         node = ctx.IDENTIFIER()[0]
         token = node.getSymbol()
         self.classname = str(node)
-        self.visitChildren(ctx)
+        #self.visitChildren(ctx)
     
     
     def visitMethoddeclaration(self, ctx):
@@ -50,7 +51,7 @@ class argErrorDetection(semanticErrorDetection):
         else:
             node = identifier_nodes
             self.methodname = str(node)
-        self.visitChildren(ctx)
+        #self.visitChildren(ctx)"""
     
 
     def visitClassPropExpr(self, ctx):
@@ -60,7 +61,9 @@ class argErrorDetection(semanticErrorDetection):
             print("\tcurrent method: ", self.methodname)
         # get method name
         method_name = str(ctx.getChild(2))
-        class_name = self.visit(ctx)['template_class']
+        try: expr = ctx.expression(0)
+        except: expr = ctx.expression()
+        class_name = self.visit(expr)['template_class']
 
         line = ctx.start.line
         col = ctx.start.column
@@ -92,6 +95,4 @@ class argErrorDetection(semanticErrorDetection):
                 else:
                     if arg_type['type'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
-
-
-        
+                

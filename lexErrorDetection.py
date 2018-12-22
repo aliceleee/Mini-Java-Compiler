@@ -1,4 +1,6 @@
+from antlr4 import *
 from miniJavaExprVisitor import *
+
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
 else:
@@ -13,6 +15,8 @@ class LexError(Exception):
     def __init__(self, msg):
         super().__init__(msg)
         self.msg = msg
+
+
 class lexErrorDetection(miniJavaExprVisitor):
     def __init__(self):
         super().__init__() 

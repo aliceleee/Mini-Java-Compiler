@@ -11,7 +11,7 @@ class BT {
 
     public int Start(){
 	Tree root ;
-	boolean ntb ;
+	boolean ntb;
 	int nti ;
 
 	root = new Tree();
