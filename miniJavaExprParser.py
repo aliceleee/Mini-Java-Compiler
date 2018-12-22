@@ -884,7 +884,7 @@ class miniJavaExprParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class AssignStatementContext(StatementContext):
+    class ArrayAssignStatementContext(StatementContext):
 
         def __init__(self, parser, ctx): # actually a miniJavaExprParser.StatementContext)
             super(miniJavaExprParser.AssignStatementContext, self).__init__(parser)
@@ -899,8 +899,35 @@ class miniJavaExprParser ( Parser ):
                 return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,i)
 
 
-        def enterRule(self, listener):
-            if hasattr(listener, "enterAssignStatement"):
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArrayAssignStatement" ):
+                listener.enterArrayAssignStatement(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArrayAssignStatement" ):
+                listener.exitArrayAssignStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArrayAssignStatement" ):
+                return visitor.visitArrayAssignStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class AssignStatementContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def IDENTIFIER(self):
+            return self.getToken(miniJavaExprParser.IDENTIFIER, 0)
+        def expression(self):
+            return self.getTypedRuleContext(miniJavaExprParser.ExpressionContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAssignStatement" ):
                 listener.enterAssignStatement(self)
 
         def exitRule(self, listener):
@@ -1037,7 +1064,7 @@ class miniJavaExprParser ( Parser ):
                 pass
 
             elif la_ == 6:
-                localctx = miniJavaExprParser.AssignStatementContext(self, localctx)
+                localctx = miniJavaExprParser.ArrayAssignStatementContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 143
                 self.match(miniJavaExprParser.IDENTIFIER)
@@ -1254,8 +1281,9 @@ class miniJavaExprParser ( Parser ):
 
     class OperationExprContext(ExpressionContext):
 
-        def __init__(self, parser, ctx): # actually a miniJavaExprParser.ExpressionContext)
-            super(miniJavaExprParser.OperationExprContext, self).__init__(parser)
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniJavaExprParser.ExpressionContext
+            super().__init__(parser)
+            self.op = None # Token
             self.copyFrom(ctx)
 
         def expression(self, i=None):
@@ -1504,9 +1532,10 @@ class miniJavaExprParser ( Parser ):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 12)")
                         self.state = 177
+                        localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << miniJavaExprParser.T__23) | (1 << miniJavaExprParser.T__24) | (1 << miniJavaExprParser.T__25) | (1 << miniJavaExprParser.T__26) | (1 << miniJavaExprParser.T__27))) != 0)):
-                            self._errHandler.recoverInline(self)
+                            localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()

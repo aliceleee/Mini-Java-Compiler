@@ -24,10 +24,10 @@ statement : '{' (statement)* '}'                                    # blockState
           | 'while' '(' expression ')' statement                    # whileStatement
           | 'System.out.println' '(' expression ')' ';'             # printStatement
           | IDENTIFIER '=' expression ';'                           # assignStatement
-          | IDENTIFIER '[' expression ']' '=' expression ';'        # assignStatement
+          | IDENTIFIER '[' expression ']' '=' expression ';'        # arrayAssignStatement
           ;
 
-expression : expression ('&&' | '<' | '+' | '-' | '*') expression                   # operationExpr
+expression : expression op=('&&' | '<' | '+' | '-' | '*') expression                   # operationExpr
            | expression '[' expression ']'                                          # arrayValExpr
            | expression '.' 'length'                                                # arraylenExpr
            | expression '.' IDENTIFIER '(' (expression (',' expression)*)? ')'      # classPropExpr

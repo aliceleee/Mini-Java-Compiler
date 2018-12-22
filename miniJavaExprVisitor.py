@@ -75,6 +75,11 @@ class miniJavaExprVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by miniJavaExprParser#arrayAssignStatement.
+    def visitArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by miniJavaExprParser#constIntExpr.
     def visitConstIntExpr(self, ctx):
         return self.visitChildren(ctx)

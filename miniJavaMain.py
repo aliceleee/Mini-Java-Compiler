@@ -7,6 +7,7 @@ from errorOptimization import *
 from lexErrorDetection import *
 from symbolTable import *
 from argErrorDetection import *
+from semanticErrorDetection import *
 
 def main(filename):
     filestream = FileStream(filename)
@@ -26,6 +27,8 @@ def main(filename):
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
+    semanticErrorDetector = semanticErrorDetection()
+    semanticErrorDetector.visit(tree)
 
     argErrorDetector = argErrorDetection(symbol_table)
     argErrorDetector.visit(tree)
