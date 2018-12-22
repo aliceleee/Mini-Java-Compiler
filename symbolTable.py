@@ -68,17 +68,17 @@ class symbolTable(miniJavaExprVisitor):
         self.symbol_table = symbol_table
 
     
-    # def visitMainclass(self, ctx):
-    #     class_name = str(ctx.getChild(1))
-    #     symbol_table[class_name] = {
-    #         'type': 'class',
-    #     }
+    def visitMainclass(self, ctx):
+        class_name = str(ctx.getChild(1))
+        symbol_table[class_name] = {
+            'type': 'class',
+        }
 
-    #     for child_ctx in ctx.vardeclaration():
-    #         visit_var_node(symbol_table[class_name], child_ctx)
+        # for child_ctx in ctx.vardeclaration():
+        #     visit_var_node(symbol_table[class_name], child_ctx)
         
-    #     for child_ctx in ctx.methoddeclaration():
-    #         visit_method_node(symbol_table[class_name], child_ctx)
+        # for child_ctx in ctx.methoddeclaration():
+        #     visit_method_node(symbol_table[class_name], child_ctx)
 
 
     def visitClassdeclaration(self, ctx):
