@@ -103,6 +103,20 @@ class semanticErrorDetection(miniJavaExprVisitor):
                 node = identifier_nodes
             token = node.getSymbol()
             self.methodname = token.text
+        
+        # return type check
+        rtrexpr = ctx.expression()
+        rtrtype = self.visit(rtrexpr)
+        methodinfo = self._lookupTable(token.text)
+        line = rtrexpr.start.line; col = rtrexpr.start.column
+        if methodinfo["return_type"] in mjtype_list and rtrtype["type"] != methodinfo["return_type"]:
+            self._printErrMsg(line, col, " return type mismatch, expect type " + methodinfo["return_type"] + " ,but get type " + rtrtype["type"])
+        elif methodinfo["return_type"] not in mjtype_list:
+            if "template_class" not in rtrtype:
+                self._printErrMsg(line, col, " return type mismatch, expect type " + methodinfo["return_type"] + " ,but get type " + rtrtype["type"])
+            elif rtrtype["template_class"] != methodinfo["return_type"]:
+                self._printErrMsg(line, col, " return type mismatch, expect type " + methodinfo["return_type"] + " ,but get type " + rtrtype["template_class"])
+
 
         if self.debug:
             print("visit method declaration")
@@ -293,8 +307,10 @@ class semanticErrorDetection(miniJavaExprVisitor):
         exprtype = self.visit(expr)
         if exprtype["type"] != "class" and exprtype["type"] != "instance":
             self._printErrMsg(line, col, exprtype["type"] + " object doesn't have attribute " + cmethodname)
+            return {"expr_type": "classProp", "type":"None"}
         elif not self._checkAttribute(exprtype["template_class"], cmethodname):
-            self._printErrMsg(line, col, "class " +  exptype["template_class"] + " doesn't have attribute " + cmethodname)
+            self._printErrMsg(line, col, "class " +  exprtype["template_class"] + " doesn't have attribute " + cmethodname)
+            return {"expr_type": "classProp", "type":"None"}
         
         # check the paramters
         # temporaly change self.classname to the caller classname

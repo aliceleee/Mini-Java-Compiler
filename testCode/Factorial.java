@@ -3,7 +3,10 @@ class Factorial{
 	System.out.println(new Fac().ComputeFac(10));
     }
 }
-
+/*
+multi line comment test
+ */
+// single line comment test
 class Fac {
     public int ComputeFac(int num){
 	int num_aux;
@@ -12,7 +15,7 @@ class Fac {
 	else 
 	    num_aux = num * (this.ComputeFac(num_aux));
 
-	return num_aux ;
+	return num_aux;
     }
 	
 }

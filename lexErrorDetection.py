@@ -33,6 +33,7 @@ class lexErrorDetection(miniJavaExprVisitor):
             print("Error(line " + str(line) + " , position " + str(col) + "): " + e.msg)
     def checkIdentifier(self, ctx):
         identifier_nodes = ctx.IDENTIFIER()
+        #print(identifier_nodes)
         if type(identifier_nodes) is type([]):
             for i in range(len(identifier_nodes)):
                 node = identifier_nodes[i]
