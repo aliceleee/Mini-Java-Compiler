@@ -10,8 +10,8 @@ class Fac {
 	if (num < 1)
 	    num_aux = 10;
 	else 
-	    num_aux = num * (this.ComputeFac(false)) ;
-	
+	    num_aux = num * (this.ComputeFac(num_aux));
+
 	return num_aux ;
     }
 	

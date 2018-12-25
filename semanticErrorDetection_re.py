@@ -144,7 +144,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         #print("in assign statement, Identifier type: ", idtype)
         #print("in assign statement, expression type: ", exprtype)
 
-        self.visitChildren(ctx)
+        #self.visitChildren(ctx)
 
     def visitArrayAssignStatement(self, ctx:miniJavaExprParser.ArrayAssignStatementContext):
         if self.debug:
@@ -178,7 +178,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
         if valtype["type"] != "int":
             self._printErrMsg(line, col, "incompatible type, can't assign type int with type " + valtype["type"])
         
-        self.visitChildren(ctx)
+        #self.visitChildren(ctx)
 
     def visitOperationExpr(self, ctx:miniJavaExprParser.OperationExprContext):
         if self.debug:
@@ -270,9 +270,11 @@ class semanticErrorDetection(miniJavaExprVisitor):
                 if arg_type['type'] == 'instance':
                     if arg_type['template_class'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+                        break
                 else:
                     if arg_type['type'] != arg_right_list[i]['arg_type']:
                         print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+                        break
         return
 
     def visitClassPropExpr(self, ctx:miniJavaExprParser.ClassPropExprContext):

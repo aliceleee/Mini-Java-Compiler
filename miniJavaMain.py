@@ -10,8 +10,15 @@ from argErrorDetection import *
 #from semanticErrorDetection import *
 from semanticErrorDetection_re import *
 from errorFix import *
+import argparse
+import os
 
-def main(filename):
+_parser = argparse.ArgumentParser("miniJava Compiler")
+_parser.add_argument("--dir", type=str, default="./testCode")
+_parser.add_argument("--file", type=str, default="test.java")
+args = _parser.parse_args()
+
+def get_tree(filename):
     filestream = FileStream(filename)
     lexer = miniJavaExprLexer(filestream)
     tokens = CommonTokenStream(lexer)
@@ -20,9 +27,19 @@ def main(filename):
     errorOptimizationInstance = miniJavaErrorOptimization()
     parser.addErrorListener(errorOptimizationInstance)
     tree = parser.goal()
-    # print(tree.toStringTree())
+    #print(tree.toStringTree())
     error_dict = errorOptimizationInstance.error_dict
+    error_fixer(error_dict, filename)
+    #print(tree.toStringTree())
+    if error_dict:
+        tree = get_tree(filename)
+        return tree
+    return tree
 
+def main(filename):
+    tree = get_tree(filename)
+    #print(tree.toStringTree())
+    
     # build symbol table
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
@@ -39,9 +56,10 @@ def main(filename):
     #argErrorDetector.visit(tree)
     #print ("arg finish")
 
-    error_fixer(error_dict, filename)
-
-
 if __name__ == "__main__":
-    main("./testCode/TreeVisitor.java")
+    dirname = args.dir 
+    filename = args.file
+    path = os.path.join(dirname, filename)
+    main(path)
+    #main("./testCode/BinarySearch.java")
     #main("./testCases/Factorial.java")

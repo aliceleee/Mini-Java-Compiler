@@ -95,6 +95,17 @@ class symbolTable(miniJavaExprVisitor):
         for child_ctx in ctx.methoddeclaration():
             visit_method_node(symbol_table[class_name], child_ctx)
 
+        identifier_nodes = ctx.IDENTIFIER()
+        if type(identifier_nodes) is list and len(identifier_nodes) > 1:
+            # has parents
+            pclass = identifier_nodes[1].getSymbol()
+            if pclass in symbol_table:
+                pclass_attr = symbol_table[pclass]
+                for k,v in pclass_attr.items():
+                    if k in symbol_table[class_name]:
+                        pass
+                    else:
+                        symbol_table[class_name][k] = v
         # print(symbol_table)
     
     
