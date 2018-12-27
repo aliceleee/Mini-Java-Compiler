@@ -281,13 +281,18 @@ class semanticErrorDetection(miniJavaExprVisitor):
             length = len(arg_right_list)
             for i in range(length):
                 arg_type = arg_type_list[i]
-                if arg_type['type'] == 'instance':
-                    if arg_type['template_class'] != arg_right_list[i]['arg_type']:
-                        print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+                if arg_right_list[i]['arg_type'] in mjtype_list and arg_type["type"] != arg_right_list[i]['arg_type']:
+                    self._printErrMsg(line, col, "Wrong argument type, expect " + arg_right_list[i]['arg_type'] + " but get " + arg_type["type"])
+                elif arg_right_list[i]["arg_type"] not in mjtype_list:
+                    if "template_class" not in arg_type:
+                        self._printErrMsg(line, col, "Wrong argument type, expect " + arg_right_list[i]["arg_type"] + " but get " + arg_type["type"])
+                        print("arg type: ", arg_type)
+                        print("arg right list: ", arg_right_list[i])
                         break
-                else:
-                    if arg_type['type'] != arg_right_list[i]['arg_type']:
-                        print("Error(line " + str(line) + " , position " + str(col) + "): Wrong Argument Type.")
+                    elif arg_type["template_class"] != arg_right_list[i]["arg_type"]:
+                        self._printErrMsg(line, col, "Wrong argument type, expect " + arg_right_list[i]["arg_type"] + " but get " + arg_type["template_class"])
+                        print("arg type: ", arg_type)
+                        print("arg right list: ", arg_right_list[i])
                         break
         return
 
