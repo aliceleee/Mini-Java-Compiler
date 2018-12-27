@@ -330,7 +330,8 @@ class Tree{
 
 class Visitor {
     Tree l ;
-    Tree r ;
+	Tree r ;
+	int test;
 
     public int visit(Tree n){
 	int nti ;

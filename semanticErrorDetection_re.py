@@ -70,7 +70,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
             # has parent class
             cclass_node = identifier_nodes[0]; token = cclass_node.getSymbol(); self.classname = token.text
             pclass_node = identifier_nodes[1]; token = pclass_node.getSymbol()
-            pclass_type = self._lookupTable(token)
+            pclass_type = self._lookupTable(token.text)
             line = token.line; col = token.column
             if pclass_type["type"] == "undefined":
                 self._printErrMsg(line, col, token.text + " is used without defined")
@@ -288,7 +288,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
                         #print("arg type: ", arg_type)
                         #print("arg right list: ", arg_right_list[i])
                         break
-                    elif arg_type["template_class"] != arg_right_list[i]["arg_type"]:
+                    elif self.symbolTable[arg_type["template_class"]]['parent_class'] != arg_right_list[i]["arg_type"]:
                         self._printErrMsg(line, col, "Wrong argument type, expect " + arg_right_list[i]["arg_type"] + " but get " + arg_type["template_class"])
                         #print("arg type: ", arg_type)
                         #print("arg right list: ", arg_right_list[i])

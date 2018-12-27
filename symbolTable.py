@@ -1,5 +1,6 @@
 from antlr4 import *
 from miniJavaExprVisitor import *
+import copy
 
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
@@ -24,7 +25,7 @@ def visit_var_node(table, ctx):
     else:
         table[var_name]['type'] = 'instance'
         table[var_name]['template_class'] = var_type
-
+        # table[var_name]['parent_class'] = symbol_table[var_type]['parent_class']
 
 
 def visit_method_node(table, ctx):
@@ -87,9 +88,16 @@ class symbolTable(miniJavaExprVisitor):
 
     def visitClassdeclaration(self, ctx):
         class_name = str(ctx.getChild(1))
-        symbol_table[class_name] = {
-            'type': 'class',
-        }
+        # print(ctx.getChild(2))
+        if str(ctx.getChild(2)) == 'extends':
+            parent_class = str(ctx.getChild(3))
+            symbol_table[class_name] = copy.deepcopy(symbol_table[parent_class])
+            symbol_table[class_name]['parent_class'] = parent_class
+        else:
+            symbol_table[class_name] = {
+                'type': 'class',
+                'parent_class': class_name,
+            }
 
         for child_ctx in ctx.vardeclaration():
             visit_var_node(symbol_table[class_name], child_ctx)
@@ -108,6 +116,3 @@ class symbolTable(miniJavaExprVisitor):
                         pass
                     else:
                         symbol_table[class_name][k] = v
-        # print(symbol_table)
-    
-    

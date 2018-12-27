@@ -6,6 +6,7 @@ from miniJavaExprListener import *
 from errorOptimization import *
 from lexErrorDetection import *
 from symbolTable import *
+from symbolTableRound2 import *
 from argErrorDetection import *
 #from semanticErrorDetection import *
 from semanticErrorDetection_re import *
@@ -43,8 +44,12 @@ def main(filename):
     # build symbol table
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
-    symbol_table = symbol_table_handler.symbol_table
-    # print(symbol_table['Fac']['ComputeFac'])
+    symbol_table_round1 = symbol_table_handler.symbol_table
+    symbol_table_handler2 = symbolTableRound2(symbol_table_round1)
+    symbol_table_handler2.visit(tree)
+    symbol_table = symbol_table_handler2.symbol_table
+
+    # print(symbol_table_round1['MyVisitor'])
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
