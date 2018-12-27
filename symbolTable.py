@@ -14,6 +14,7 @@ mjtype_list = ['int[]', 'boolean', 'int']
 
 
 def visit_var_node(table, ctx):
+    # print(table)
     var_type = ctx.mjtype().getText()
     var_name = str(ctx.getChild(1))
 
@@ -52,6 +53,7 @@ def visit_method_node(table, ctx):
         # mjtype
         if str(ctx.getChild(child_index))[0] == '[':
             arg_dict = {}
+            # print(str(ctx.getChild(child_index + 1)))
             arg_dict['arg_name'] = str(ctx.getChild(child_index + 1))
             arg_dict['arg_type'] = ctx.getChild(child_index).getText()
             table[method_name]['arg_list'].append(arg_dict)

@@ -177,7 +177,9 @@ class semanticErrorDetection(miniJavaExprVisitor):
             print("\tcurrent class: ", self.classname)
             print("\tcurrent method: ", self.methodname)
 
-        exp1 = ctx.expression(0); exp2 = ctx.expression(1)
+        exp1 = ctx.expression(0)
+        exp2 = ctx.expression(1)
+
         exp1type = self.visit(exp1)
         exp2type = self.visit(exp2)
         line = exp1.start.line; col = exp1.start.column

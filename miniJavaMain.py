@@ -14,8 +14,8 @@ import argparse
 import os
 
 _parser = argparse.ArgumentParser("miniJava Compiler")
-_parser.add_argument("--dir", type=str, default="./testCode")
-_parser.add_argument("--file", type=str, default="test.java")
+_parser.add_argument("--dir", type=str, default="./testCases")
+_parser.add_argument("--file", type=str, default="TreeVisitor.java")
 args = _parser.parse_args()
 
 def get_tree(filename):
@@ -27,10 +27,10 @@ def get_tree(filename):
     errorOptimizationInstance = miniJavaErrorOptimization()
     parser.addErrorListener(errorOptimizationInstance)
     tree = parser.goal()
-    #print(tree.toStringTree())
+     
     error_dict = errorOptimizationInstance.error_dict
     error_fixer(error_dict, filename)
-    #print(tree.toStringTree())
+   
     if error_dict:
         tree = get_tree(filename)
         return tree
@@ -38,28 +38,28 @@ def get_tree(filename):
 
 def main(filename):
     tree = get_tree(filename)
-    #print(tree.toStringTree())
+    # print(tree.toStringTree())
     
     # build symbol table
     symbol_table_handler = symbolTable()
     symbol_table_handler.visit(tree)
     symbol_table = symbol_table_handler.symbol_table
-    #print(symbol_table)
+    # print(symbol_table['Fac']['ComputeFac'])
 
     lexErrorDetector = lexErrorDetection()
     lexErrorDetector.visit(tree)
     semanticErrorDetector = semanticErrorDetection(symbol_table)
     semanticErrorDetector.visit(tree)
-    print("semantic finish")
+    # print("semantic finish")
 
-    #argErrorDetector = argErrorDetection(symbol_table)
-    #argErrorDetector.visit(tree)
-    #print ("arg finish")
+    # argErrorDetector = argErrorDetection(symbol_table)
+    # argErrorDetector.visit(tree)
+    # print ("arg finish")
 
 if __name__ == "__main__":
     dirname = args.dir 
     filename = args.file
     path = os.path.join(dirname, filename)
     main(path)
-    #main("./testCode/BinarySearch.java")
-    #main("./testCases/Factorial.java")
+    # main("./testCode/BinarySearch.java")
+    # main("./testCases/Factorial.java")

@@ -117,7 +117,6 @@ class semanticErrorDetection(miniJavaExprVisitor):
             elif rtrtype["template_class"] != methodinfo["return_type"]:
                 self._printErrMsg(line, col, " return type mismatch, expect type " + methodinfo["return_type"] + " ,but get type " + rtrtype["template_class"])
 
-
         if self.debug:
             print("visit method declaration")
             print("\tcurrent class: ", self.classname)
@@ -266,7 +265,7 @@ class semanticErrorDetection(miniJavaExprVisitor):
             if arg_first_flag == 0:
                 arg_first_flag = 1
                 continue
-            
+            # print(str(expr_ctx))
             exp_type = self.visit(expr_ctx)
             arg_type_list.append(exp_type)
         
