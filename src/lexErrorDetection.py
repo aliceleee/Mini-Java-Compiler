@@ -1,16 +1,22 @@
+from antlr4 import *
 from miniJavaExprVisitor import *
+
 if __name__ is not None and "." in __name__:
     from .miniJavaExprParser import miniJavaExprParser
 else:
     from miniJavaExprParser import miniJavaExprParser
 # A visitor class for detecting all lex error
 
+
 reserved_words = ['abstract','assert','boolean','break','byte','case','catch','char','class','const','continue','default','double','do','else','enum','extends','final','finally','float','for','goto','if','implements','import','instanceof','int','interface','long','native','main','new','null','package','private','protected','public','return','short','static','strictfp','super','switch','synchronized','this','throw','throws','transient','try','void','volatile','while']
+
 
 class LexError(Exception):
     def __init__(self, msg):
         super().__init__(msg)
         self.msg = msg
+
+
 class lexErrorDetection(miniJavaExprVisitor):
     def __init__(self):
         super().__init__() 
@@ -27,6 +33,7 @@ class lexErrorDetection(miniJavaExprVisitor):
             print("Error(line " + str(line) + " , position " + str(col) + "): " + e.msg)
     def checkIdentifier(self, ctx):
         identifier_nodes = ctx.IDENTIFIER()
+        #print(identifier_nodes)
         if type(identifier_nodes) is type([]):
             for i in range(len(identifier_nodes)):
                 node = identifier_nodes[i]

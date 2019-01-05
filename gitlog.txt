@@ -1,0 +1,333 @@
+commit 27dc57a7f220f88efef1987a562ece1506e5e00c
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Jan 5 00:05:31 2019 +0800
+
+    modify README.md
+
+commit 865418200fdf7aa6b33a557e24ec7fb4d0c678d7
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Jan 5 00:03:46 2019 +0800
+
+    modify README.md
+
+commit fa985347ad69aa598a9423b23fcf56f1ee679c70
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Jan 4 23:59:56 2019 +0800
+
+    add README and put up files
+
+commit 436c804dcaa4e35abb5524307b459452c059c596
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Jan 4 23:59:02 2019 +0800
+
+    add README and put up files
+
+commit 6eb0ac292c58959b44d9349900e7ec6fab557d08
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Thu Dec 27 23:31:58 2018 +0800
+
+    bug fixed & add class extension
+
+commit e78a825e5262c3ff1750a7ea93bcb099648e6870
+Merge: 60d2925 e3cf9d9
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 27 17:01:48 2018 +0800
+
+    Merge branch 'master' of github.com:aliceleee/Mini-Java-Compiler
+
+commit 60d2925e11c28ebae7aff6039f2592b21795cda6
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 27 17:00:45 2018 +0800
+
+    bug fix
+
+commit 1c50f99b2a9a100a3be4a0d80396265185768de4
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 27 16:55:06 2018 +0800
+
+    bug fix
+
+commit e3cf9d9299587ce5b17a4f2418c9e589ebb96416
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Thu Dec 27 16:49:28 2018 +0800
+
+    little change
+
+commit c456dce7801aba39dc394c113c7c47d04bd39fe2
+Author: aliceleee <15802109221@163.com>
+Date:   Tue Dec 25 23:09:59 2018 +0800
+
+    bug fix and add return type check~:)
+
+commit 05afb1db918208956f13712a1f023d0f3cbebff2
+Author: aliceleee <15802109221@163.com>
+Date:   Tue Dec 25 15:50:25 2018 +0800
+
+    bug fix
+
+commit 22f34a826b163d562462fd6dfef495fe01834e3e
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 16:04:47 2018 +0800
+
+    bug fix and another big bug found. semantic error finished.
+
+commit 4183554f2dea0b4f7345118b0c87b92a5dd63a72
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 15:42:09 2018 +0800
+
+    bug fix and rewrite semantic error detection
+
+commit 054cf061b92fba813e25baa155790a939bce21f1
+Merge: e640f52 d433077
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 13:15:27 2018 +0800
+
+    merge operation
+
+commit e640f52f94f1cdad469f277d2413127eb308b0cf
+Merge: 7da971e 4612ff9
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 13:13:04 2018 +0800
+
+    before bug fixed
+
+commit d4330773388706d7bd8d9c425a899c3ba36eb3db
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Sat Dec 22 11:30:35 2018 +0800
+
+    error fixer
+
+commit 7da971e9ac04cf36abe3d1b174211df3bc33fcb7
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 09:56:13 2018 +0800
+
+    merge commit
+
+commit 4612ff9583d4867ee305878177f98e1aa282af4c
+Merge: a4299db 492e188
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Sat Dec 22 09:55:25 2018 +0800
+
+    Merge branch 'alice' of https://github.com/aliceleee/Mini-Java-Compiler into master_cxyang
+
+commit 824ccbe3bac509cc2d4666c5889925b764f9f91b
+Merge: 4f124ff 492e188
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 09:22:21 2018 +0800
+
+    master push
+
+commit a4299dbe0c9dd7dca6e56d9942e6acbdef814d02
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Sat Dec 22 09:11:48 2018 +0800
+
+    'rm .vscode'
+
+commit 516765985581fca7279974c65b9b5604117bdbc0
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Sat Dec 22 09:10:53 2018 +0800
+
+    "delete unneccessary files"
+
+commit 4f124ff39705ab36e6578633096ad17464bcf9f9
+Merge: dc087d8 675e46a
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 08:50:22 2018 +0800
+
+    master commit, merge operation
+
+commit dc087d8639aa90379b52978c90048d1cc23d68d1
+Author: aliceleee <15802109221@163.com>
+Date:   Sat Dec 22 08:48:45 2018 +0800
+
+    master commit, merge operation
+
+commit 675e46ad13ac4601a62d09bab9ea807466910dc4
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 23:15:11 2018 +0800
+
+    add arg error detection
+
+commit 492e18870b55e6dd51e3c07ec62db1fcf08ba96e
+Merge: c1a8863 bb94e35
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 22:19:01 2018 +0800
+
+    merge
+
+commit c1a88638a08207f93369756ca48a78dfbfdd04b6
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 21:20:00 2018 +0800
+
+    simple test pass
+
+commit ea27e240465b53c2996c5db230bcf4c1d7375ceb
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 21:06:39 2018 +0800
+
+    semantic error detection version 1
+
+commit a304155a234b89a61b229e44efb4d97631028726
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 20:16:20 2018 +0800
+
+    add symbolTable
+
+commit bdaea788faab2dc8214869c936fc73ea1f596c68
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 20:10:41 2018 +0800
+
+    update symbol table
+
+commit 6669b7f2363938ccd859ecf1cb82f34b4c7e4449
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 20:07:46 2018 +0800
+
+    build symbol table
+
+commit 25f12001fc8780e610b7d1ecb46c6a0edb6fe45a
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 19:37:25 2018 +0800
+
+    bug fix and some work on semantic error detection
+
+commit 2dcef780c51574486273d595b5d8a8d1b76731c2
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 16:44:45 2018 +0800
+
+    bug fix and much work on semantic error detection
+
+commit f7c2016706b08c11467e03e80427921255c91556
+Author: aliceleee <15802109221@163.com>
+Date:   Fri Dec 21 14:01:51 2018 +0800
+
+    bug fix and continue working on semantic error detection
+
+commit bb94e35aad796ed39c763d3d2791cd335dceb69b
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 11:04:45 2018 +0800
+
+    rm local files
+
+commit 6cc28df5a683cdbe48d6171a36eacced33c4af07
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Fri Dec 21 10:58:02 2018 +0800
+
+    update expr error detection
+
+commit 1fcdf9ff1cb45d30e5528f564be08e6e158b57fc
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 20 23:50:38 2018 +0800
+
+    a little update
+
+commit 80a2c9bd3e3db0d28af0f5bc1767f5cdd1fd9923
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Thu Dec 20 22:52:57 2018 +0800
+
+    update expr error
+
+commit 09247259c1bda79efeaed5e44a530cd01f50528d
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 20 21:42:37 2018 +0800
+
+    adding a little semantic error detection
+
+commit 0fd0525c2a99a27eb5abd4dbcc11a52d4fd89a92
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 20 15:12:36 2018 +0800
+
+    lex error detection, identifier use reserved words
+
+commit ed539eb66c291477bbcbe07dff106180daf1559e
+Author: aliceleee <15802109221@163.com>
+Date:   Thu Dec 20 14:24:34 2018 +0800
+
+    simple lex error detection and optimization
+
+commit 59027e25b9236c781b07e7299665ecebfbf67f44
+Merge: b231990 7a97e93
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 23:54:03 2018 +0800
+
+    add main function
+
+commit b23199048bcd525d1168c47dd67547a1fbf44db9
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 23:29:45 2018 +0800
+
+    back up
+
+commit 7a97e9346ddd037aee8838cb606c8f6d604669d9
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 23:08:10 2018 +0800
+
+    update lexer/expr
+
+commit 77fd141cbeeb64f8ffcfbccda80f42916f1af405
+Merge: ff473f5 e66030c
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 22:55:12 2018 +0800
+
+    Merge branch 'alice' of https://github.com/aliceleee/Mini-Java-Compiler into alice
+
+commit ff473f557a168f0575aa5981a9a41edc85bbcec7
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 22:55:08 2018 +0800
+
+    change reserved words
+
+commit e66030c37204a532cf8d3bb64ef816e7644ce5cd
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 22:28:00 2018 +0800
+
+    modify
+
+commit 3ffe5e895c9838a41d3b432444946626ef57630b
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 22:23:20 2018 +0800
+
+    update mini java expression analysis rules
+
+commit 3aac937fb2c51ca470a745b5893bc465d27d68da
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 21:45:15 2018 +0800
+
+    bug fixed
+
+commit 9622d8007af24f0aa653055e87d6812dd7a5fb43
+Merge: dc11cb9 687ec6f
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 21:38:33 2018 +0800
+
+    Merge branch 'alice' of github.com:aliceleee/Mini-Java-Compiler into alice
+
+commit dc11cb93ea6c8a2bcd6253624096f566a4c492ca
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 21:37:27 2018 +0800
+
+    expression analysis debug
+
+commit 687ec6f0447e9762b0e150f95b6d3ae6aa295aba
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 21:37:20 2018 +0800
+
+    bug fixed
+
+commit ae40ab0e703f3ee7d783f8c622d86e8171d11040
+Author: cxyang <yangchenxi1220@gmail.com>
+Date:   Wed Dec 19 21:26:44 2018 +0800
+
+    Update miniJavaLexer.g4
+
+commit b1c525edf10bd3caa7b15a0516c2a2508ae87c3f
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 19:46:12 2018 +0800
+
+    expression analysis rules commit 1
+
+commit 612b7a38f37f0b75fa3b6990b0913b9905ab1456
+Author: aliceleee <15802109221@163.com>
+Date:   Wed Dec 19 18:34:46 2018 +0800
+
+    starting project
