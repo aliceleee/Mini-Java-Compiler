@@ -15,7 +15,7 @@ MacOS Mojave 10.14.2
 ### 运行方式
 1. 安装好依赖的工具和库
 2. 切至目录src下
-3. 在命令行执行以下命令生成许多原本需要我们手写的文件，例如tokens, listen.java:
+3. 在命令行执行以下命令生成许多原本需要我们手写的文件，例如tokens, listen.java:
     ```
     antlr4 miniJavaExpr.g4
     ```
@@ -23,7 +23,7 @@ MacOS Mojave 10.14.2
     ```
     javac *.java
     ```
-5. 在命令行运行以下命令可对输入代码生成语法树（需要将待测代码复制在命令行，并以EOF结束）：
+5. 在命令行运行以下命令可对输入代码生成语法树（需要将待测代码复制在命令行，并以EOF结束）：
     ```
     grun miniJavaExpr goal -gui
     ```
